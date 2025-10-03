@@ -15,6 +15,8 @@ INSERT INTO public.user_role (uuid, creationDate, modificationDate, deletedDate,
 
 INSERT INTO public.usuario (uuid, creationDate, modificationDate, deletedDate, fullName, phone, email, password, sessionToken, sessionDate, id_role) SELECT 'c90fc766-db1a-4265-ba24-01eb3b7247c2', now(), now(), null, 'Ivan Recio', '644 45 32 91', 'ivan.recio@uah.es', '44d6bfa719f5ba08eaef9cdd5035d0c5f2f894da57f9140c34ab1c842387597889886d0880d314c4246d9a080b2ad10afc4bb41f95ea47e70e3ef201741fe0bc', null, null, r.id from user_role r where r.name = 'Administrador';
 
+INSERT INTO public.usuario (uuid, creationDate, modificationDate, deletedDate, fullName, phone, email, password, sessionToken, sessionDate, id_role) SELECT '79b29c7d-7c09-4b79-9cbb-3d5a3a56fa00', now(), now(), null, 'Jorge Guillén', '644 45 32 91', 'jorge.guillenp@uah.es', '8869c155849c775743ab9ee1ff8f346fa26d89fa8f74cc97fbb422cede6875b95723891c21c6b996836550d43f2ba5146a30961609f5d14c07244244f05e74b0', null, null, r.id from user_role r where r.name = 'Administrador';
+
 -- Navbars
 
 INSERT INTO public.navbar (uuid, creationDate, modificationDate, deletedDate, code, title) VALUES ('ab13e77b-5dcf-4cc8-ba00-3397c49604dc', now(), now(), null, 'DASH', 'Dashboards');

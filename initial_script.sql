@@ -3,8 +3,9 @@ drop table if EXISTS usuario cascade;
 drop table if EXISTS navbar cascade;
 drop table if EXISTS role_navbar cascade;
 drop table if EXISTS articles;
-drop table if EXISTS notifications;
 drop table if EXISTS user_notifications;
+drop table if EXISTS notifications;
+drop table if EXISTS status_actions;
 
 
 
@@ -309,5 +310,44 @@ ALTER SEQUENCE IF EXISTS user_notifications_id_seq OWNED BY user_notifications.i
 
 CREATE INDEX IF NOT EXISTS user_notifications_idx_uuid
     ON public.user_notifications USING btree
+    (uuid)
+    TABLESPACE pg_default;
+
+
+-- ------------------------------------------------------------------------------------------------------
+
+
+CREATE SEQUENCE IF NOT EXISTS public.status_actions_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+ALTER SEQUENCE public.status_actions_id_seq     OWNER TO postgres;
+
+
+CREATE TABLE IF NOT EXISTS public.status_actions
+(
+    id integer NOT NULL DEFAULT nextval('status_actions_id_seq'::regclass),
+    uuid text COLLATE pg_catalog."default" NOT NULL,
+    creationDate text NOT NULL,
+    status text NOT NULL,
+    uuid_action text NOT NULL,
+    uuid_user text NOT NULL,
+    table_action text NOT NULL,
+	CONSTRAINT status_actions_pkey PRIMARY KEY (id),
+	CONSTRAINT unique_status_actions_uuid UNIQUE (uuid)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.status_actions     OWNER to postgres;
+
+ALTER SEQUENCE IF EXISTS status_actions_id_seq OWNED BY status_actions.id;
+
+
+CREATE INDEX IF NOT EXISTS status_actions_idx_uuid
+    ON public.status_actions USING btree
     (uuid)
     TABLESPACE pg_default;
