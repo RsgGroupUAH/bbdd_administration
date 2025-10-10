@@ -3,6 +3,9 @@ drop table if EXISTS usuario cascade;
 drop table if EXISTS navbar cascade;
 drop table if EXISTS role_navbar cascade;
 drop table if EXISTS articles;
+drop table if EXISTS projects;
+drop table if EXISTS tasks;
+drop table if EXISTS tasks_user;
 drop table if EXISTS user_notifications;
 drop table if EXISTS notifications;
 drop table if EXISTS status_actions;
@@ -69,6 +72,7 @@ CREATE TABLE IF NOT EXISTS public.usuario
     phone text,
     email text NOT NULL,
     password text NOT NULL,
+    imagePath text NOT NULL DEFAULT 'NO-USER.png',
     sessionToken text,
     sessionDate text,
     id_role int NOT NULL,
@@ -351,3 +355,140 @@ CREATE INDEX IF NOT EXISTS status_actions_idx_uuid
     ON public.status_actions USING btree
     (uuid)
     TABLESPACE pg_default;
+
+
+-- -------------------------------------------------------------------------------------
+
+
+CREATE SEQUENCE IF NOT EXISTS public.projects_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+ALTER SEQUENCE public.projects_id_seq     OWNER TO postgres;
+
+
+CREATE TABLE IF NOT EXISTS public.projects
+(
+    id integer NOT NULL DEFAULT nextval('projects_id_seq'::regclass),
+    uuid text COLLATE pg_catalog."default" NOT NULL,
+    creationDate text NOT NULL,
+    modificationDate text NOT NULL,
+    deletedDate text,
+    title text NOT NULL,
+    ref text NOT NULL,
+    authors text NOT NULL,
+    finance text NOT NULL,
+    type text NOT NULL,
+    startDate text NOT NULL,
+    endDate text NOT NULL,
+	CONSTRAINT projects_pkey PRIMARY KEY (id),
+	CONSTRAINT unique_projects_uuid UNIQUE (uuid),
+	CONSTRAINT unique_projects_title UNIQUE (title)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.projects     OWNER to postgres;
+
+ALTER SEQUENCE IF EXISTS projects_id_seq OWNED BY projects.id;
+
+
+CREATE INDEX IF NOT EXISTS projects_idx_uuid
+    ON public.projects USING btree
+    (uuid)
+    TABLESPACE pg_default;
+
+
+-- -----------------------------------------------------------------------------------------------
+
+
+CREATE SEQUENCE IF NOT EXISTS public.tasks_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+ALTER SEQUENCE public.tasks_id_seq     OWNER TO postgres;
+
+
+CREATE TABLE IF NOT EXISTS public.tasks
+(
+    id integer NOT NULL DEFAULT nextval('tasks_id_seq'::regclass),
+    uuid text COLLATE pg_catalog."default" NOT NULL,
+    creationDate text NOT NULL,
+    modificationDate text NOT NULL,
+    deletedDate text,
+    title text NOT NULL,
+    message text,
+    status text NOT NULL,
+    priority text NOT NULL,
+    limitDate text,
+	CONSTRAINT tasks_pkey PRIMARY KEY (id),
+	CONSTRAINT unique_tasks_uuid UNIQUE (uuid)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.tasks     OWNER to postgres;
+
+ALTER SEQUENCE IF EXISTS tasks_id_seq OWNED BY tasks.id;
+
+
+CREATE INDEX IF NOT EXISTS tasks_idx_uuid
+    ON public.tasks USING btree
+    (uuid)
+    TABLESPACE pg_default;
+
+
+-- ------------------------------------------------------------------------------------------
+
+
+CREATE SEQUENCE IF NOT EXISTS public.tasks_user_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+ALTER SEQUENCE public.tasks_user_id_seq     OWNER TO postgres;
+
+
+CREATE TABLE IF NOT EXISTS public.tasks_user
+(
+    id integer NOT NULL DEFAULT nextval('tasks_user_id_seq'::regclass),
+    uuid text COLLATE pg_catalog."default" NOT NULL,
+    creationDate text NOT NULL,
+    modificationDate text NOT NULL,
+    deletedDate text,
+    id_user int NOT NULL,
+    id_task int NOT NULL,
+	CONSTRAINT tasks_user_pkey PRIMARY KEY (id),
+	CONSTRAINT unique_tasks_user_uuid UNIQUE (uuid),
+    CONSTRAINT tasks_user_id_user_fkey FOREIGN KEY (id_user)
+        REFERENCES public.usuario (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT navbar_role_id_task_fkey FOREIGN KEY (id_task)
+        REFERENCES public.tasks (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.tasks_user     OWNER to postgres;
+
+ALTER SEQUENCE IF EXISTS tasks_user_id_seq OWNED BY tasks_user.id;
+
+
+CREATE INDEX IF NOT EXISTS tasks_user_idx_uuid
+    ON public.tasks_user USING btree
+    (uuid)
+    TABLESPACE pg_default;
+
+
+-- -------------------------------------------------------------------------------------------------

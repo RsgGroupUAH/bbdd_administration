@@ -5,6 +5,7 @@ truncate role_navbar cascade;
 truncate articles cascade;
 truncate notifications cascade;
 truncate user_notifications cascade;
+truncate projects cascade;
 
 
 -- User Role
@@ -13,9 +14,13 @@ INSERT INTO public.user_role (uuid, creationDate, modificationDate, deletedDate,
 
 -- User
 
-INSERT INTO public.usuario (uuid, creationDate, modificationDate, deletedDate, fullName, phone, email, password, sessionToken, sessionDate, id_role) SELECT 'c90fc766-db1a-4265-ba24-01eb3b7247c2', now(), now(), null, 'Ivan Recio', '644 45 32 91', 'ivan.recio@uah.es', '44d6bfa719f5ba08eaef9cdd5035d0c5f2f894da57f9140c34ab1c842387597889886d0880d314c4246d9a080b2ad10afc4bb41f95ea47e70e3ef201741fe0bc', null, null, r.id from user_role r where r.name = 'Administrador';
+INSERT INTO public.usuario (uuid, creationDate, modificationDate, deletedDate, fullName, phone, email, password, imagePath, sessionToken, sessionDate, id_role) SELECT 'c90fc766-db1a-4265-ba24-01eb3b7247c2', now(), now(), null, 'Ivan Recio', '644 45 32 91', 'ivan.recio@uah.es', '44d6bfa719f5ba08eaef9cdd5035d0c5f2f894da57f9140c34ab1c842387597889886d0880d314c4246d9a080b2ad10afc4bb41f95ea47e70e3ef201741fe0bc', 'IVAN-RECIO.jpg', null, null, r.id from user_role r where r.name = 'Administrador';
 
-INSERT INTO public.usuario (uuid, creationDate, modificationDate, deletedDate, fullName, phone, email, password, sessionToken, sessionDate, id_role) SELECT '79b29c7d-7c09-4b79-9cbb-3d5a3a56fa00', now(), now(), null, 'Jorge Guillén', '644 45 32 91', 'jorge.guillenp@uah.es', '8869c155849c775743ab9ee1ff8f346fa26d89fa8f74cc97fbb422cede6875b95723891c21c6b996836550d43f2ba5146a30961609f5d14c07244244f05e74b0', null, null, r.id from user_role r where r.name = 'Administrador';
+INSERT INTO public.usuario (uuid, creationDate, modificationDate, deletedDate, fullName, phone, email, password, imagepath, sessionToken, sessionDate, id_role) SELECT '79b29c7d-7c09-4b79-9cbb-3d5a3a56fa00', now(), now(), null, 'Jorge Guillén', '644 45 32 91', 'jorge.guillenp@uah.es', '8869c155849c775743ab9ee1ff8f346fa26d89fa8f74cc97fbb422cede6875b95723891c21c6b996836550d43f2ba5146a30961609f5d14c07244244f05e74b0', 'JORGE-GUILLEN.jpg', null, null, r.id from user_role r where r.name = 'Administrador';
+
+INSERT INTO public.usuario (uuid, creationDate, modificationDate, deletedDate, fullName, phone, email, password, imagepath, sessionToken, sessionDate, id_role) SELECT '93c73d47-5df7-4bfb-8925-925a458f1254', now(), now(), null, 'María Samper', '644 45 32 91', 'maria.samper@uah.es', '8869c155849c775743ab9ee1ff8f346fa26d89fa8f74cc97fbb422cede6875b95723891c21c6b996836550d43f2ba5146a30961609f5d14c07244244f05e74b0', 'MARIA-SAMPER.jpg', null, null, r.id from user_role r where r.name = 'Administrador';
+
+INSERT INTO public.usuario (uuid, creationDate, modificationDate, deletedDate, fullName, phone, email, password, imagepath, sessionToken, sessionDate, id_role) SELECT '38eea687-c52d-442f-8b14-677e98f8aacb', now(), now(), null, 'Ricardo Chocano', '644 45 32 91', 'ricardo.chocano@uah.es', '8869c155849c775743ab9ee1ff8f346fa26d89fa8f74cc97fbb422cede6875b95723891c21c6b996836550d43f2ba5146a30961609f5d14c07244244f05e74b0', 'NO-USER.png', null, null, r.id from user_role r where r.name = 'Administrador';
 
 -- Navbars
 
@@ -166,3 +171,117 @@ INSERT INTO public.notifications (uuid, creationDate, modificationDate, deletedD
 -- User_Notifications
 
 INSERT INTO public.user_notifications (uuid, creationDate, modificationDate, deletedDate, id_notification, id_user) SELECT gen_random_uuid(), now(), now(), null, n.id, u.id FROM notifications n CROSS JOIN usuario u WHERE n.uuid = '78d95d24-bc28-4428-8999-bbd7597eb879' AND u.email = 'ivan.recio@uah.es';
+
+-- Projects 
+
+INSERT INTO public.projects (
+    uuid, creationDate, modificationDate, deletedDate,
+    title, ref, authors, finance, type, startDate, endDate
+) VALUES 
+(gen_random_uuid(), now(), now(), NULL,
+'Metodología para la evaluación de la exposición personal en nuevas redes de telefonía móvil 5G.',
+'REF 2022/00042/001, CM/JIN/2021-032', 'UAH, UCLM', 'Comunidad de Madrid', 'INVESTIGACION', '01/01/2022', '31/12/2023'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Medida de contaminación electromagnética en redes 5G',
+'UAH INFR. B 2021-012', 'UAH', 'UAH', 'INVESTIGACION', '30/09/2021', '31/12/2021'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Monitorización, vigilancia y caracterización de la exposición personal ante el segundo dividendo digital y el despliegue de la 5ª generación de telefonía móvil (5G)',
+'CM/JIN/2019-036', 'UAH', 'UAH', 'INVESTIGACION', '01/01/2019', '31/12/2021'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Ultra-efficient wireless powered micro-robotic joint for health applications UWIPOM2.',
+'H2020-FETOPEN-2018-2019-2020-01', 'Universidad de Alcalá, Advanced Hall Sensors Ltd, Politechnika Warszawska, Fundacion Imdea Nanociencia Y Boston Scientific Limited .', 'Unión Europea', 'INVESTIGACION', '01/10/2019', '31/09/2022'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Bomba para ultra-alto vacío turbomolecular y sensor de presión para ultra-alto vacío',
+'', 'UAH', 'UAH', 'INVESTIGACION', '16/11/2016', '20/12/2018'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Magnetización multipolar 3D de imanes permanentes orientada a sistemas microelectrónicos.',
+'CCGP2017-EXP/011', 'UAH', 'UAH', 'INVESTIGACION', '01/12/2017', '31/12/2018'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Diseño y optimización de INVESTIGACION de bocina UWB para observaciones radioastronómicas para estudio de datos geodésicos',
+'CCG2016/EXP-073', 'UAH-OAN', 'UAH', 'INVESTIGACION', '16/12/2016', '15/12/2017'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Caracterización automática de la superficie de madera mediante métodos ópticos no invasivos.',
+'AGL2013-44631-P', 'UAH-UCM-UDL', 'Ministerio de Economía y Competitividad', 'INVESTIGACION', '01/01/2014', '31/12/2017'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Diseño de INVESTIGACION planares cuatribanda para aplicaciones móviles de nueva generación.',
+'2011/047', 'UAH', 'UAH', 'INVESTIGACION', '01/02/2012', '27/02/2013'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Telegestión de alumbrado exterior mediante utilización de tecnología inalámbrica.',
+'82/2010', 'SOCELEC, UAH.', 'Junta de Comunidades de Castilla la Mancha', 'INVESTIGACION', '01/01/2009', '31/12/2010'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Elaboración de materiales docentes adaptados a alumnos con problemas de asistencia o seguimiento en asignaturas de postgrado.',
+'UAH/EV 209', 'UAH', 'UAH', 'DOCENCIA', '01/01/2008', '31/12/2009'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Incorporación de materiales didácticos prácticos a un entorno de e-learning: aplicación a asignaturas relacionadas con los sistemas de comunicación en ingenierías.',
+'UAH/EV 196', 'UAH', 'UAH', 'DOCENCIA', '01/01/2007', '31/12/2008'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Regeneración de aguas mediante técnicas pasivas in situ: reutilización para riego y recarga.',
+'CGL2007-65712-C03-01/HID', 'UAH,URJC,CENTA', 'Ministerio de Educación y Ciencia', 'INVESTIGACION', '01/01/2007', '31/12/2007'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Filtrado del “clutter” marino en series temporales de imágenes radar.',
+'CCG06-UAH/TIC-0726', 'UAH', 'Comunidad de Madrid', 'INVESTIGACION', '01/01/2007', '31/12/2007'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Integración de contenidos didácticos en un entorno on-line para el aprendizaje en Ingeniería de Telecomunicación e Ingeniería Técnica de Telecomunicación',
+'UAH/EV 132', 'UAH', 'UAH', 'DOCENCIA', '01/01/2006', '31/12/2007'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Tratamiento y Reutilización de Aguas Residuales para una Gestión Sostenible',
+'', 'Varios', 'Ministerio de Educacion y Ciencia ', 'INVESTIGACION', '01/01/2006', '31/12/2011'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Control de la contaminación de las aguas subterráneas por nitratos: Desarrollo de un prototipo de sonda con métodos ópticos para su determinación en continuo.',
+'2005/025', 'UAH', 'CAM-UAH', 'INVESTIGACION', '01/01/2006', '31/12/2006'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Desarrollo de instrumentación y sistemas para el seguimiento y control remotos de la calidad de las aguas subterráneas: aplicación en la depuración y reutilización de aguas residuales mediante filtros verdes',
+'', 'UAH, UPM', 'CICYT', 'INVESTIGACION', '01/01/2003', '31/12/2006'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Filtros Verdes: Diseño de sensores para la monitorización in situ de parámetros de control contaminantes.',
+'', 'UAH', 'CAM', 'INVESTIGACION', '01/01/2001', '31/12/2003'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Aplicación de nuevas tecnologías de la información y comunicaciones en la implantación y gestión de Filtros Verdes (creación de una planta experimental en el filtro verde de Redueña)',
+'LA CAIXA 2001-001', 'UAH', 'Fundacion LA Caixa', 'INVESTIGACION', '01/01/2001', '31/12/2003'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Implantación y gestión de filtros verdes: una alternativa para la depuración y reutilización de aguas residuales (creación de una planta experimental en el filtro verde de Redueña)',
+'REN2000-0759-C02-0', 'UAH, UPM, CSIC', 'CICTY', 'INVESTIGACION', '01/01/2001', '31/12/2003'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Desarrollo de un sistema de medida de deformaciones y resistencia a la rotura de huesos de ratas',
+'E050/2000', 'UAH', 'UAH', 'INVESTIGACION', '01/01/2000', '31/12/2000'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Experiencia piloto para el anillamineto y seguimiento de las aves fringilidas en Andalucía.',
+'2024/149', 'UAH', 'Junta de Andalucía', 'INVESTIGACION', '07/11/2024', '07/10/2025'),
+
+(gen_random_uuid(), now(), now(), NULL,
+'Prevención Inteligente del Riesgo de Incendios Forestales basada en estimación de Masa y Humedad de Combustible Vegetal en Guadalajara',
+'UAH-CORTES CLM 2025-007', 'UAH', 'JCCLM', 'INVESTIGACION', '16/09/2025', '31/12/2025');
+
+-- Tasks 
+
+INSERT INTO public.tasks (uuid, creationDate, modificationDate, deletedDate, title, message, status, priority, limitDate) VALUES
+
+(gen_random_uuid(), now(), now(), null, 'Despliegue del Geoportal', 'Desplegar el geoportal en un ordenador del laboratorio para empezar a trabajar con el y poder hacer pruebas', 'TODO', 'HIGH', '09/10/2025'),
+
+(gen_random_uuid(), now(), now(), null, 'Desplegar Web del grupo', 'Hay que desplegar la web del grupo en el CAU y revisar que todo funcione correctamente', 'DONE', 'MEDIUM', '09/10/2025'),
+
+(gen_random_uuid(), now(), now(), null, 'Limpieza Medidas Interiores/Exteriores', 'Hay que hacer la limpieza de los CSVs y filtrar los datos obtenidos para poder graficar las cosas', 'DOING', 'LOW', '09/10/2025'),
+
+(gen_random_uuid(), now(), now(), null, 'Imagenes Satelitales CCLM', 'Sacar imagenes satelitales para poder calcular el indice pre-incendios', 'TODO', 'HIGH', '09/10/2025');
