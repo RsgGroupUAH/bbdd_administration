@@ -6,6 +6,8 @@ truncate articles cascade;
 truncate notifications cascade;
 truncate user_notifications cascade;
 truncate projects cascade;
+truncate tasks_user cascade;
+truncate tasks cascade;
 
 
 -- User Role
@@ -14,7 +16,7 @@ INSERT INTO public.user_role (uuid, creationDate, modificationDate, deletedDate,
 
 -- User
 
-INSERT INTO public.usuario (uuid, creationDate, modificationDate, deletedDate, fullName, phone, email, password, imagePath, sessionToken, sessionDate, id_role) SELECT 'c90fc766-db1a-4265-ba24-01eb3b7247c2', now(), now(), null, 'Ivan Recio', '644 45 32 91', 'ivan.recio@uah.es', '44d6bfa719f5ba08eaef9cdd5035d0c5f2f894da57f9140c34ab1c842387597889886d0880d314c4246d9a080b2ad10afc4bb41f95ea47e70e3ef201741fe0bc', 'IVAN-RECIO.jpg', null, null, r.id from user_role r where r.name = 'Administrador';
+INSERT INTO public.usuario (uuid, creationDate, modificationDate, deletedDate, fullName, phone, email, password, imagePath, sessionToken, sessionDate, id_role) SELECT 'c90fc766-db1a-4265-ba24-01eb3b7247c2', now(), now(), null, 'Ivan Recio', '644 45 32 91', 'ivan.recio@uah.es', '8869c155849c775743ab9ee1ff8f346fa26d89fa8f74cc97fbb422cede6875b95723891c21c6b996836550d43f2ba5146a30961609f5d14c07244244f05e74b0', 'IVAN-RECIO.jpg', null, null, r.id from user_role r where r.name = 'Administrador';
 
 INSERT INTO public.usuario (uuid, creationDate, modificationDate, deletedDate, fullName, phone, email, password, imagepath, sessionToken, sessionDate, id_role) SELECT '79b29c7d-7c09-4b79-9cbb-3d5a3a56fa00', now(), now(), null, 'Jorge Guillén', '644 45 32 91', 'jorge.guillenp@uah.es', '8869c155849c775743ab9ee1ff8f346fa26d89fa8f74cc97fbb422cede6875b95723891c21c6b996836550d43f2ba5146a30961609f5d14c07244244f05e74b0', 'JORGE-GUILLEN.jpg', null, null, r.id from user_role r where r.name = 'Administrador';
 
@@ -192,7 +194,7 @@ INSERT INTO public.projects (
 
 (gen_random_uuid(), now(), now(), NULL,
 'Ultra-efficient wireless powered micro-robotic joint for health applications UWIPOM2.',
-'H2020-FETOPEN-2018-2019-2020-01', 'Universidad de Alcalá, Advanced Hall Sensors Ltd, Politechnika Warszawska, Fundacion Imdea Nanociencia Y Boston Scientific Limited .', 'Unión Europea', 'INVESTIGACION', '01/10/2019', '31/09/2022'),
+'H2020-FETOPEN-2018-2019-2020-01', 'Universidad de Alcalá, Advanced Hall Sensors Ltd, Politechnika Warszawska, Fundacion Imdea Nanociencia Y Boston Scientific Limited .', 'Unión Europea', 'INVESTIGACION', '01/10/2019', '30/09/2022'),
 
 (gen_random_uuid(), now(), now(), NULL,
 'Bomba para ultra-alto vacío turbomolecular y sensor de presión para ultra-alto vacío',
@@ -278,10 +280,28 @@ INSERT INTO public.projects (
 
 INSERT INTO public.tasks (uuid, creationDate, modificationDate, deletedDate, title, message, status, priority, limitDate) VALUES
 
-(gen_random_uuid(), now(), now(), null, 'Despliegue del Geoportal', 'Desplegar el geoportal en un ordenador del laboratorio para empezar a trabajar con el y poder hacer pruebas', 'TODO', 'HIGH', '09/10/2025'),
+('b36a1afe-38e5-436c-ab57-1359ef168062', now(), now(), null, 'Despliegue del Geoportal', 'Desplegar el geoportal en un ordenador del laboratorio para empezar a trabajar con el y poder hacer pruebas', 'TODO', 'HIGH', '09/10/2025'),
 
-(gen_random_uuid(), now(), now(), null, 'Desplegar Web del grupo', 'Hay que desplegar la web del grupo en el CAU y revisar que todo funcione correctamente', 'DONE', 'MEDIUM', '09/10/2025'),
+('1f91b849-ee9e-4e6b-8c08-46aaaa8dff05', now(), now(), null, 'Desplegar Web del grupo', 'Hay que desplegar la web del grupo en el CAU y revisar que todo funcione correctamente', 'DONE', 'MEDIUM', '09/10/2025'),
 
-(gen_random_uuid(), now(), now(), null, 'Limpieza Medidas Interiores/Exteriores', 'Hay que hacer la limpieza de los CSVs y filtrar los datos obtenidos para poder graficar las cosas', 'DOING', 'LOW', '09/10/2025'),
+('9a094003-4843-49f9-9ffa-b69dfbd64b5d', now(), now(), null, 'Limpieza Medidas Interiores/Exteriores', 'Hay que hacer la limpieza de los CSVs y filtrar los datos obtenidos para poder graficar las cosas', 'DOING', 'LOW', '09/10/2025'),
 
-(gen_random_uuid(), now(), now(), null, 'Imagenes Satelitales CCLM', 'Sacar imagenes satelitales para poder calcular el indice pre-incendios', 'TODO', 'HIGH', '09/10/2025');
+('e041e5cd-8610-43af-92a9-2e18c07055f1', now(), now(), null, 'Imagenes Satelitales CCLM', 'Sacar imagenes satelitales para poder calcular el indice pre-incendios', 'TODO', 'HIGH', '09/10/2025');
+
+-- Tasks_User
+
+INSERT INTO public.tasks_user (uuid, creationDate, modificationDate, deletedDate, id_user, id_task)  
+
+-- Ivan
+SELECT gen_random_uuid(), now(), now(), null, u.id, t.id FROM usuario u CROSS JOIN tasks t WHERE u.uuid = 'c90fc766-db1a-4265-ba24-01eb3b7247c2' AND t.uuid = 'b36a1afe-38e5-436c-ab57-1359ef168062' UNION ALL
+SELECT gen_random_uuid(), now(), now(), null, u.id, t.id FROM usuario u CROSS JOIN tasks t WHERE u.uuid = 'c90fc766-db1a-4265-ba24-01eb3b7247c2' AND t.uuid = '1f91b849-ee9e-4e6b-8c08-46aaaa8dff05' UNION ALL
+
+--Jorge
+SELECT gen_random_uuid(), now(), now(), null, u.id, t.id FROM usuario u CROSS JOIN tasks t WHERE u.uuid = '79b29c7d-7c09-4b79-9cbb-3d5a3a56fa00' AND t.uuid = 'b36a1afe-38e5-436c-ab57-1359ef168062' UNION ALL
+SELECT gen_random_uuid(), now(), now(), null, u.id, t.id FROM usuario u CROSS JOIN tasks t WHERE u.uuid = '79b29c7d-7c09-4b79-9cbb-3d5a3a56fa00' AND t.uuid = 'e041e5cd-8610-43af-92a9-2e18c07055f1' UNION ALL
+
+--Maria
+SELECT gen_random_uuid(), now(), now(), null, u.id, t.id FROM usuario u CROSS JOIN tasks t WHERE u.uuid = '93c73d47-5df7-4bfb-8925-925a458f1254' AND t.uuid = '9a094003-4843-49f9-9ffa-b69dfbd64b5d' UNION ALL
+
+--Ricardo
+SELECT gen_random_uuid(), now(), now(), null, u.id, t.id FROM usuario u CROSS JOIN tasks t WHERE u.uuid = '38eea687-c52d-442f-8b14-677e98f8aacb' AND t.uuid = 'b36a1afe-38e5-436c-ab57-1359ef168062';
