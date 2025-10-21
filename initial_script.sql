@@ -9,6 +9,8 @@ drop table if EXISTS tasks_user;
 drop table if EXISTS user_notifications;
 drop table if EXISTS notifications;
 drop table if EXISTS status_actions;
+drop table if EXISTS works;
+drop table if EXISTS computers;
 
 
 
@@ -492,3 +494,91 @@ CREATE INDEX IF NOT EXISTS tasks_user_idx_uuid
 
 
 -- -------------------------------------------------------------------------------------------------
+
+
+CREATE SEQUENCE IF NOT EXISTS public.works_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+ALTER SEQUENCE public.works_id_seq     OWNER TO postgres;
+
+
+CREATE TABLE IF NOT EXISTS public.works
+(
+    id integer NOT NULL DEFAULT nextval('works_id_seq'::regclass),
+    uuid text COLLATE pg_catalog."default" NOT NULL,
+    creationDate text NOT NULL,
+    modificationDate text NOT NULL,
+    deletedDate text,
+    title text NOT NULL,
+    student text NOT NULL,
+    teacher text NOT NULL,
+    yearPresentation text NOT NULL,
+    type text NOT NULL,
+    status text NOT NULL,
+    career text,
+	CONSTRAINT works_pkey PRIMARY KEY (id),
+	CONSTRAINT unique_works_uuid UNIQUE (uuid)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.works     OWNER to postgres;
+
+ALTER SEQUENCE IF EXISTS works_id_seq OWNED BY works.id;
+
+
+CREATE INDEX IF NOT EXISTS works_idx_uuid
+    ON public.works USING btree
+    (uuid)
+    TABLESPACE pg_default;
+
+
+-- --------------------------------------------------------------------
+
+
+CREATE SEQUENCE IF NOT EXISTS public.computers_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+ALTER SEQUENCE public.computers_id_seq     OWNER TO postgres;
+
+
+CREATE TABLE IF NOT EXISTS public.computers
+(
+    id integer NOT NULL DEFAULT nextval('computers_id_seq'::regclass),
+    uuid text COLLATE pg_catalog."default" NOT NULL,
+    creationDate text NOT NULL,
+    modificationDate text NOT NULL,
+    deletedDate text,
+    name text NOT NULL,
+    adminUser TEXT NOT NULL,
+    adminPassword text NOT NULL,
+    ipAddress text,
+    remote BOOLEAN DEFAULT FALSE,
+    haveStudent BOOLEAN DEFAULT FALSE,
+    studentName TEXT,
+    studentUser TEXT,
+    studentPassword TEXT,
+    so TEXT NOT NULL,
+	CONSTRAINT computers_pkey PRIMARY KEY (id),
+	CONSTRAINT unique_computers_uuid UNIQUE (uuid)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.computers     OWNER to postgres;
+
+ALTER SEQUENCE IF EXISTS computers_id_seq OWNED BY computers.id;
+
+
+CREATE INDEX IF NOT EXISTS computers_idx_uuid
+    ON public.computers USING btree
+    (uuid)
+    TABLESPACE pg_default;

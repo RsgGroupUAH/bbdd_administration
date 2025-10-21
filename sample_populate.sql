@@ -305,3 +305,245 @@ SELECT gen_random_uuid(), now(), now(), null, u.id, t.id FROM usuario u CROSS JO
 
 --Ricardo
 SELECT gen_random_uuid(), now(), now(), null, u.id, t.id FROM usuario u CROSS JOIN tasks t WHERE u.uuid = '38eea687-c52d-442f-8b14-677e98f8aacb' AND t.uuid = 'b36a1afe-38e5-436c-ab57-1359ef168062';
+
+-- Trabajos --------------------------------------
+
+INSERT INTO public.works (uuid, creationDate, modificationDate, deletedDate, title, student, teacher, yearPresentation, type, status, career) VALUES
+
+(gen_random_uuid(), now(), now(), null, 'Desarrollo de una aplicación Android para la recogida y envío de datos característicos de las aves', 'Razvan Virgil Craciun', 'Pablo Luis López Espí', '2021/22', 'TFG', 'DEFENDED', 'GISI (G581)'),
+
+(gen_random_uuid(), now(), now(), null, 'Estudio y análisis de las nuevas redes inteligentes de distribución eléctrica SMAR GRIDS', 'Cesar Pedrero Cánovas', 'Pablo Luis López Espí', '2014/15', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Estudio de Fuentes de Ruido en Frecuencias de Microondas', 'Óscar Martínez Sanz', 'Pablo Luis López Espí', '2013/14', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Optimización de elementos RFID con aplicaciones para el seguimiento de juetos de azar', 'Samuel López Ruiz', 'Pablo Luis López Espí', '2013/14', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Estudio de la emisiones radioelectricas en banda ancha de la ciudad de Alcala de Henares.', 'Sergio Diaz Camacho', 'Pablo Luis López Espí', '2014/15', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Sistema de comunicaciones internas tetra en un buque.', 'Javier Castellanos Cañadas', 'Pablo Luis López Espí', '2014/15', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Radioenlaces para televisión local', 'Javier Mayoral de Lucas', 'Pablo Luis López Espí', '2014/15', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Enlace optico para conexiones USB.', 'Victor Serrano Bazan', 'Pablo Luis López Espí', '2015/16', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Aplicaciones de Advanced Desing System (ADS) para el diseño de dispositivos de RF y microondas.', 'Jesus Lopez Paniego', 'Pablo Luis López Espí', '2016/17', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Diseño de filtro paso-banda (Hairpin) de microondas.', 'Verónica Carrera Burgos', 'Pablo Luis López Espí', '2016/17', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Estudio de las emisiones radioeléctricas en banda ancha del municipio de Meco', 'Natalia Cañadilla Fernández-Layos', 'Pablo Luis López Espí', '2016/17', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Optimización del ancho de banda de una bocina cónica', 'Mohamed Jihad Douas Maadi', 'Pablo Luis López Espí', '2017/18', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Técnicas de filtrado en bocinas cónicas', 'Noelia Soriano Virgil', 'Pablo Luis López Espí', '2017/18', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Desarrollo de un plan de alertas y comunicaciones para presas.', 'Jarmi Recio Martínez', 'Pablo Luis López Espí', '2017/18', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Medidas de seguridad de datos para la industria de tarjeas de pago', 'Omar Vicente Sanchéz', 'Pablo Luis López Espí', '2017/18', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Diseño de filtros de microondas de doble banda', 'Miriam Ruiz Guijarro', 'Pablo Luis López Espí', '2018/19', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Despliegue de FTTH en poligonos industriales', 'Yuriy Ratych', 'Pablo Luis López Espí', '2018/19', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Despliegue FTTH', 'Sergio Rosa Vellisca', 'Pablo Luis López Espí', '2019/20', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Desarrollo de una aplicación en Android para recogida y envio de datos característicos de las aves.', 'Daniel Galán Pérez', 'Pablo Luis López Espí', '2020/21', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Propuesta de diseño de un servicio de televisión por satélite', 'Juan Adrián Tomé Velázquez', 'Pablo Luis López Espí', '2022/23', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Puesta en marcha de un radioenlace con diversidad en frecuencia mediante elementos realizados con impresión 3D.', 'Alexis Javier Pardo García', 'Pablo Luis López Espí', '2023/24', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Diseño de un Phased Array de antenas de parche', 'Emilio Prieto Guardiola', 'Pablo Luis López Espí', '2024/25', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Protocolo para la instalación y puesta en marcha de equipos con tecnología de multiplexación de longitud de onda CWDM.', 'Jean Fernando Sellán Arias', 'Pablo Luis López Espí', '2021/22', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Diseño e implementación de un geoportal para datos de exposición a campos electromagnéticos.', 'Ricardo Martínez Guadalajara', 'Pablo Luis López Espí, Jorge Guillen Pina', '2024/25', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Proyecto de plató virtual de grabación de contenido audiovisual en la Escuela Politécnica', 'David Villa Bergaz', 'Pablo Luis López Espí', '2024/25', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Diseño y simulación de elementos en guía de onda construidos mediante impresión 3D.', 'Rubén Nieto Capuchino', 'Pablo Luis López Espí', '2014/15', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Entorno para la medida simultánea de las señales ECG y Doppler.', 'Miguel Ángel Giraldo Nogues', 'Pablo Luis López Espí', '2014/15', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Diseño de una antena multibanda para telefonía movil.', 'Javier Camino Fuentes', 'Pablo Luis López Espí', '2016/17', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Filtros de microondas de banda ultra-ancha', 'Manuel Soler Borrego', 'Pablo Luis López Espí', '2016/17', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Análisis de los sistemas de navegacioón por satélite', 'Álvaro Catalina Madrid', 'Pablo Luis López Espí', '2016/17', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Implementación de una antena de bocina cónica con CST y su posterior impresión en 3D.', 'Diego Alonso Condori Bravo', 'Pablo Luis López Espí', '2017/18', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Antenas monopolo para sistemas Ultra Wide Band', 'Sandra Gutiérrez Serrano', 'Pablo Luis López Espí', '2017/18', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Despliegue de FTTH en ámbito rural', 'María Gutiérrez Luque', 'Pablo Luis López Espí', '2019/20', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Herramienta de análisis basada en tickets para el estudio de incidencias en redes móviles', 'Javier Piquero de Mingo', 'Pablo Luis López Espí, Mario Esgueva Acero', '2022/23', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Estudio, diseño y puesta a punto de la integración del sistema de comunicaciones de control de tráfico en un aeropuerto.', 'Guillermo Tudela Ciudad-Real', 'Pablo Luis López Espí', '2023/24', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Estudio y diseño de filtro paso banda en cavidades para aplicaciones radioastronómicas.', 'Mª Gabriela del Pino Linares', 'Pablo Luis López Espí', '2022/23', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Desarrollo de una aplicación móvil híbrida para la recogida de datos de contaminación electromagética', 'Rubén Castro Sanz', 'Pablo Luis López Espí', '2023/24', 'TFG', 'DEFENDED', 'GII (G781)'),
+
+(gen_random_uuid(), now(), now(), null, 'Desarrollo de sistemas alimentadores multihaz en ondas milimétricas para observaciones 
+radioastronómicas simultáneas', 'Samuel López Ruiz', 'Pablo Luis López Espí', '2015/16', 'TFM', 'DEFENDED', 'MUIT (M125)'),
+
+(gen_random_uuid(), now(), now(), null, 'Front-End de banda ancha (2-14 Ghz) para receptor radioastronómico geodésico.
+', 'Pablo García Carreño', 'Pablo Luis López Espí', '2015/16', 'TFM', 'DEFENDED', 'MUIT (M125)'),
+
+(gen_random_uuid(), now(), now(), null, 'Diseño y optimización de una antena de apertura de banda ancha', 'Jorge Javier Díez Martín', 'Pablo Luis López Espí', '2016/17', 'TFM', 'DEFENDED', 'MUIT (M125)'),
+
+(gen_random_uuid(), now(), now(), null, 'Diseño de un array de antenas de parche a 24 GHz para un módulo radar Doppler.', 'Ionut Bodgan Gheorghe', 'Pablo Luis López Espí', '2019/20', 'TFM', 'DEFENDED', 'MUIT (M125)'),
+
+(gen_random_uuid(), now(), now(), null, 'Diseño y optimización de una antena monopolo impresa de banda ultra ancha (UWB) para 
+aplicaciones de comunicación inalámbrica.
+', 'Sergio Bermúde Onrubia', 'Pablo Luis López Espí', '2021/22', 'TFM', 'DEFENDED', 'MUIT (M125)'),
+
+(gen_random_uuid(), now(), now(), null, 'Diseño y caracterización de una antena reconfigurable para aplicaciones de banda ultra-ancha', 'Diego Alonso Condori Bravo', 'Pablo Luis López Espí', '2021/22', 'TFM', 'DEFENDED', 'MUIT (M125)'),
+
+(gen_random_uuid(), now(), now(), null, 'Optimización de antenas de apertura mediante variaciones del perfil de corrugado.', 'Mohamed Jihad Douas Maadi', 'Pablo Luis López Espí', '2021/22', 'TFM', 'DEFENDED', 'MUIT (M125)'),
+
+(gen_random_uuid(), now(), now(), null, 'Estudio de las Formas de las Microcalcificaciones empleando Máscaras Fractales.', 'Alejandro Romero Róman', 'Rocío Sánchez Montero', '2014/15', 'TFG', 'DEFENDED', 'GIEC (G37)'),
+
+(gen_random_uuid(), now(), now(), null, 'Estudio de una antena con triple polarización para LTE', 'Miguel Angel Blanco Galeano', 'Rocío Sánchez Montero', '2014/15', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Diseño y simulación de antenas con materiales textiles', 'Patricia Navas Gómez', 'Rocío Sánchez Montero', '2016/17', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Estudio comparativo de las diferentes técnicas disponibles en el tratamiento y mejora de imágenes mamográficas', 'Rocío Franco Sánchez', 'Rocío Sánchez Montero', '2016/17', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Estudio del empleo de la técnica de corrugación en antenas impresas.', 'Eva María Colino Gómez', 'Rocío Sánchez Montero', '2016/17', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Estudio y caracterización de antenas de localización frente a fenómenos bélicos', 'Luis Alberto Fernández Pérez', 'Rocío Sánchez Montero', '2017/18', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Estudio de las características radioeléctricas en las antenas con variaciones de temperatura', 'Elena Ayeceba Obiang Mibuy', 'Rocío Sánchez Montero', '2017/18', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Implementación de una antena de bocina corrugada en el programa de diseño CST para su estudio', 'Ana María de la Fuente Aguilar', 'Rocío Sánchez Montero', '2016/17', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Diseño y simulación de una antena UWB para LTE', 'Óscar Martín Martín', 'Rocío Sánchez Montero', '2016/17', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Análisis de las características de propagación en el entorno WiFi para áreas urbanas', 'Rebeca González Moreno', 'Rocío Sánchez Montero', '2016/17', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Diseño de antena flexible de banda ancha en tecnología microstrip en ranura para aplicaciones RFID y LTE', 'Diego Martínez Villanueva', 'Rocío Sánchez Montero', '2017/18', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Caracterización de una antena monopolo de banda ultra ancha en forma de ala con material textil para aplicaciones RFID', 'Rafael Hidalgo Cazallas', 'Rocío Sánchez Montero', '2017/18', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Análisis de los cambios térmicos en el comportamiento de una antena embarcada en un satélite', 'Beatriz Vadillo Cortés', 'Rocío Sánchez Montero', '2017/18', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Implantación del sistema de telecomunicaciones móviles GSM-R en una línea ferroviaria', 'Eduardo Ibarra Pérez', 'Rocío Sánchez Montero, Eder Fernández Latasa', '2020/21', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Detección, análisis y optimización de emplazamientos con sombras de cobertura en tecnología radio destinada a servicios de emergencia', 'Marco Antonio Osado Barcones', 'Rocío Sánchez Montero, Ignacio Guerra Rodríguez', '2022/23', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Optimización y validación de urna de protección planetaria para ensayos de EMC', 'Antonio del Fresno Almagro', 'Rocío Sánchez Montero, María Jiménez Lorenzo', '2023/24', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Estudio y diseño de un filtro microstrip para supresión de interferencias en radioastronomía', 'Lucía Rubio Escribano', 'Rocío Sánchez Montero, Pablo García Carreño', '2022/23', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Desarrollo de conversores de frecuencia en bandas Q y W para observaciones radioastronómicas de líneas moleculares', 'Sonia Garcia Álvaro', 'Rocío Sánchez Montero', '2015/16', 'TFM', 'DEFENDED', 'MUIT (M125)'),
+
+(gen_random_uuid(), now(), now(), null, 'Sistema de control de dos radiotelescopios en red local para su uso simultáneo en VLBI geodésico', 'Francisco Javier Beltrán Martínez', 'Rocío Sánchez Montero', '2015/16', 'TFM', 'DEFENDED', 'MUIT (M125)'),
+
+(gen_random_uuid(), now(), now(), null, 'Diseño y optimización de un transductor ortomodal para aplicaciones de radioastronomía', 'Diego Martínez Villanueva', 'Rocío Sánchez Montero', '2019/20', 'TFM', 'DEFENDED', 'MUIT (M125)'),
+
+(gen_random_uuid(), now(), now(), null, 'Diseño y optimización de una antena plana en la banda X', 'Nerea Muñoz Mateos', 'Rocío Sánchez Montero', '2021/22', 'TFM', 'DEFENDED', 'MUIT (M125)'),
+
+(gen_random_uuid(), now(), now(), null, 'Micro-mecanizado de antenas de perfil reducido mediante sistema automático CNC de alta precisión', 'Miguel Fernández Muñoz', 'Rocío Sánchez Montero', '2022/23', 'TFM', 'DEFENDED', 'MUII (M141)'),
+
+(gen_random_uuid(), now(), now(), null, 'Estudio de las resonancias mecánicas del cuerpo humano mediante técnicas de impacto indirecto', 'Alfredo Fernández Toloba', 'Juan Antonio Martínez Rojas', '2016/17', 'TFG', 'DEFENDED', 'GIEC (G37)'),
+
+(gen_random_uuid(), now(), now(), null, 'Actual view of natural gas supply in Europe', 'Pedro Torcal Calleja', 'Juan Antonio Martínez Rojas', '2017/18', 'TFG', 'DEFENDED', 'GIEAI (G60)'),
+
+(gen_random_uuid(), now(), now(), null, 'Composición de imágenes acústicas en el rango audible mediante un único micrófono', 'Javier Aguilera Goméz', 'Juan Antonio Martínez Rojas', '2022/23', 'TFG', 'DEFENDED', 'GIEAI (G60)'),
+
+(gen_random_uuid(), now(), now(), null, 'Automatización y registro de parametros geométricos con significancia diagnostica en imagenes médicas', 'Francisco Javier Beltran Martinez', 'Juan Antonio Martínez Rojas', '2013/14', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Delimitación objetiva de superficie de masas en mamografias', 'Zahira Almazan Martínez', 'Juan Antonio Martínez Rojas', '2014/15', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Estudio de costes entre instalación de fibra en áreas de baja población y alternativas', 'Israa Mohamed Abbas', 'Juan Antonio Martínez Rojas', '2016/17', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Caracterización de defectos en metales mediante técnicas acústicas no destructivas', 'Adrián de la Torre Moreno', 'Juan Antonio Martínez Rojas', '2016/17', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Optimización de un sismógrafo basado en resonadores de cavidad', 'Óscar Sousa Martín', 'Juan Antonio Martínez Rojas', '2016/17', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Detección de anomalías esféricas incrustadas en una matriz elástica mediante espectrometría de impacto indirecto', 'Mariam Bouchebti', 'Juan Antonio Martínez Rojas', '2017/18', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Ingeniería de la capa física de un sistema de comunicaciones ópticas interplanetario', 'Ricardo Mattone Alén', 'Juan Antonio Martínez Rojas', '2019/20', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Ingeniería de sistemas de una arquitectura de red de comunicaciones interplanetarias', 'Ignacio del Paso Rodríguez', 'Juan Antonio Martínez Rojas', '2019/20', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Trade-off analysis of different photonic technologies applied to quantum communications', 'Ana Martínez Jiménez-Alfaro', 'Juan Antonio Martínez Rojas', '2020/21', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Diseño de una micro nave espacial propulsada por láser', 'Eduardo García Arenas', 'Juan Antonio Martínez Rojas', '2020/21', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Análisis no destructivo de alimentos mediante espectrometría acústica por impacto indirecto', 'Leticia Monasterio Expósito', 'Juan Antonio Martínez Rojas', '2016/17', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Análisis no destructivo de bebidas mediante espectrometría acústíca por impacto indirecto', 'Assma Mohamed Abbas', 'Juan Antonio Martínez Rojas', '2016/17', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Revisión y diseño de antenas de THz no fotoconductivas', 'Rocío Serrano Camacho', 'Juan Antonio Martínez Rojas', '2019/20', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Detección de concentraciones de glucosa mediante láseres de diversas longitudes de onda', 'Víctor Ramos Jiménez', 'Juan Antonio Martínez Rojas', '2023/24', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Caracterización Acústica de Tubos Elásticos para Simular Lesiones en Arterias', 'Miriam Martínez Gil', 'Juan Antonio Martínez Rojas', '2023/24', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Análisis de los efectos de diferentes aditivos en las propiedades de la madera mediante espectroscopía acústica', 'Jorge Sánchez-Mariscal Gil', 'Juan Antonio Martínez Rojas', '2022/23', 'TFM', 'DEFENDED', 'MUIT (M125)'),
+
+(gen_random_uuid(), now(), now(), null, 'Análisis y determinación de la malignidad de clúster de microcalcificaciones en mamografías', 'Clara Iriso Dallo', 'Juan Antonio Martínez Rojas', '2016/17', 'TFM', 'DEFENDED', 'MUIT (M125)'),
+
+(gen_random_uuid(), now(), now(), null, 'Análisis comparativo de manchas de sangre en tejidos con aplicaciones forenses', 'Zhaira Almazán Martínez', 'Juan Antonio Martínez Rojas', '2017/18', 'TFM', 'DEFENDED', 'MUIT (M125)'),
+
+(gen_random_uuid(), now(), now(), null, 'Estudio del envejecimiento de la madera y su datación por medio de moteado láser', 'Rubén Martín Montaño', 'Juan Antonio Martínez Rojas', '2022/23', 'TFM', 'DEFENDED', 'MUIT (M125)'),
+
+(gen_random_uuid(), now(), now(), null, 'Mejora de imágen y reconstrucción del árbol bronquial en TC pulmonares de alta resolución.', 'Pablo García Carreño', 'Jesús Alpuente Hermosilla', '2013/14', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Planificación de mediads de EMC en camara reverberante por encima de 1 GHz.', 'Carlos Rodriguez LLanos', 'Jesús Alpuente Hermosilla', '2015/16', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Diseño y caracterización de una cámara reverberante para la médida de dispositivos por encima de 1 GHz', 'Antonio José Martinez Casares', 'Jesús Alpuente Hermosilla', '2015/16', 'TFG', 'DEFENDED', 'GIST (G39)'),
+
+(gen_random_uuid(), now(), now(), null, 'Control de presencia en interiores mediante tecnologías inalámbricas', 'Daniel Pascual Antón', 'Jesús Alpuente Hermosilla', '2016/17', 'TFG', 'DEFENDED', 'GITT (G35)'),
+
+(gen_random_uuid(), now(), now(), null, 'Estudio y análisis de los efectos de la telefonía móvil sobre el cuerpo humano de diferentes características', 'Sara Martínez Santolaya', 'Jesús Alpuente Hermosilla', '2015/16', 'TFM', 'DEFENDED', 'MUIT (M125)'),
+
+(gen_random_uuid(), now(), now(), null, 'Desarrollo de filtros superconductores para aplicaciones Radioastronómicas', 'Pablo García Carreño', 'Pablo Luis López Espí, José Antonio López Pérez', '2024/25', 'TD', 'DEFENDED', null),
+
+(gen_random_uuid(), now(), now(), null, 'Caracterización Automática de Especies de Madera mediante técnicas de clasificación de imágenes', 'Jesús Alpuente Hermosilla', 'Pablo Luis López Espí, Juan Antonio Martínez Rojas', '2014/15', 'TD', 'DEFENDED', null);
+
+-- Computers 
+
+INSERT INTO public.computers (
+    uuid, creationDate, modificationDate, deletedDate,
+    name, adminUser, adminPassword, ipAddress,
+    remote, haveStudent, studentName, studentUser, studentPassword, so
+) VALUES (
+    gen_random_uuid(),
+    now()::text,
+    now()::text,
+    NULL,
+    'PC-LAB-01',
+    'admin_lab',
+    'securePass123',
+    '192.168.1.10',
+    TRUE,
+    TRUE,
+    'Juan Pérez',
+    'juanp',
+    'studPass456',
+    'Windows 11 Pro'
+);
+
+INSERT INTO public.computers (
+    uuid, creationDate, modificationDate, deletedDate,
+    name, adminUser, adminPassword, ipAddress,
+    remote, haveStudent, studentName, studentUser, studentPassword, so
+) VALUES (
+    gen_random_uuid(),
+    now()::text,
+    now()::text,
+    NULL,
+    'PC-OFFICE-02',
+    'sysadmin',
+    'rootPass789',
+    '10.0.0.15',
+    FALSE,
+    FALSE,
+    NULL,
+    NULL,
+    NULL,
+    'Ubuntu 22.04 LTS'
+);
