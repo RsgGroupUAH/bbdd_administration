@@ -29,6 +29,7 @@ INSERT INTO public.usuario (uuid, creationDate, modificationDate, deletedDate, f
 INSERT INTO public.navbar (uuid, creationDate, modificationDate, deletedDate, code, title) VALUES ('ab13e77b-5dcf-4cc8-ba00-3397c49604dc', now(), now(), null, 'DASH', 'Dashboards');
 INSERT INTO public.navbar (uuid, creationDate, modificationDate, deletedDate, code, title) VALUES ('188fba85-bd13-47cd-9944-fa789846df57', now(), now(), null, 'LABS', 'Laboratorios');
 INSERT INTO public.navbar (uuid, creationDate, modificationDate, deletedDate, code, title) VALUES ('82eb8aab-8bda-4f6e-8183-159402acdb82', now(), now(), null, 'ART', 'Artículos');
+INSERT INTO public.navbar (uuid, creationDate, modificationDate, deletedDate, code, title) VALUES ('be22634a-7a80-4376-b389-91e752025485', now(), now(), null, 'JOU', 'Revistas');
 INSERT INTO public.navbar (uuid, creationDate, modificationDate, deletedDate, code, title) VALUES ('a2d74875-7186-4abe-8af1-300dd4c7d7f2', now(), now(), null, 'PRO', 'Proyectos');
 INSERT INTO public.navbar (uuid, creationDate, modificationDate, deletedDate, code, title) VALUES ('4109bc2a-52bb-4418-b757-ae6f2b31c7d5', now(), now(), null, 'WORK', 'Trabajos');
 INSERT INTO public.navbar (uuid, creationDate, modificationDate, deletedDate, code, title) VALUES ('5762cbfa-8def-4920-9087-236fa58acf5f', now(), now(), null, 'TASK', 'Lista de Tareas');
@@ -40,131 +41,215 @@ INSERT INTO public.navbar (uuid, creationDate, modificationDate, deletedDate, co
 INSERT INTO public.role_navbar (uuid, creationDate, modificationDate, deletedDate, id_navbar, id_role) SELECT '61c4fe14-a3ec-4bdd-8e4f-0984d484a304', now(), now(), null, n.id, r.id FROM navbar n CROSS JOIN user_role r WHERE n.code = 'DASH' AND r.name = 'Administrador';
 INSERT INTO public.role_navbar (uuid, creationDate, modificationDate, deletedDate, id_navbar, id_role) SELECT 'f2f7a877-6d80-4335-9c24-788405e4fd81', now(), now(), null, n.id, r.id FROM navbar n CROSS JOIN user_role r WHERE n.code = 'LABS' AND r.name = 'Administrador';
 INSERT INTO public.role_navbar (uuid, creationDate, modificationDate, deletedDate, id_navbar, id_role) SELECT '92842523-8589-4db9-9761-bfbfb806b483', now(), now(), null, n.id, r.id FROM navbar n CROSS JOIN user_role r WHERE n.code = 'ART' AND r.name = 'Administrador';
+INSERT INTO public.role_navbar (uuid, creationDate, modificationDate, deletedDate, id_navbar, id_role) SELECT '0e656e11-21f9-4491-8e62-e03c9b594b1e', now(), now(), null, n.id, r.id FROM navbar n CROSS JOIN user_role r WHERE n.code = 'JOU' AND r.name = 'Administrador';
 INSERT INTO public.role_navbar (uuid, creationDate, modificationDate, deletedDate, id_navbar, id_role) SELECT '444273f0-19d1-43a4-b707-6907bed71603', now(), now(), null, n.id, r.id FROM navbar n CROSS JOIN user_role r WHERE n.code = 'PRO' AND r.name = 'Administrador';
 INSERT INTO public.role_navbar (uuid, creationDate, modificationDate, deletedDate, id_navbar, id_role) SELECT '1240320f-ebe8-4024-a3f7-62e8b17ab8a0', now(), now(), null, n.id, r.id FROM navbar n CROSS JOIN user_role r WHERE n.code = 'WORK' AND r.name = 'Administrador';
 INSERT INTO public.role_navbar (uuid, creationDate, modificationDate, deletedDate, id_navbar, id_role) SELECT 'ed933d9c-494d-462e-91ec-6c0438c42a7a', now(), now(), null, n.id, r.id FROM navbar n CROSS JOIN user_role r WHERE n.code = 'TASK' AND r.name = 'Administrador';
 INSERT INTO public.role_navbar (uuid, creationDate, modificationDate, deletedDate, id_navbar, id_role) SELECT 'bc5622d2-3439-4206-85e3-d20c37d37801', now(), now(), null, n.id, r.id FROM navbar n CROSS JOIN user_role r WHERE n.code = 'USER' AND r.name = 'Administrador';
 INSERT INTO public.role_navbar (uuid, creationDate, modificationDate, deletedDate, id_navbar, id_role) SELECT gen_random_uuid(), now(), now(), null, n.id, r.id FROM navbar n CROSS JOIN user_role r WHERE n.code = 'NOTI' AND r.name = 'Administrador';
 
+-- Journals 
+
+INSERT INTO public.journals (uuid, creationDate, modificationDate, deletedDate, name, quartil) VALUES
+
+(gen_random_uuid(), now(), now(), null, 'Environmental Research', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Applied Computational Electromagnetics Society Journal (ACES)', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Environmental Impact Assessment Review', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Electronics', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Systems Engineering', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Sensors', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'IEEE Transactions on Nanotechnology', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Applied Sciences', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'International Journal of Applied Electromagnetics and Mechanics', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Maderas: Ciencia y Tecnologia', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Science of the Total Environment', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'EuMIC 2016 - 11th European Microwave Integrated Circuits Conference', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'European Microwave Week 2016', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'International Journal of Antennas and Propagation', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Radiotherapy and Oncology', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, '8th European Conference on Antennas and Propagation, EuCAP 2014', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Applied Acoustics', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'LAPC 2012 - Loughborough Antennas and Propagation Conference', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Advances in Acoustics and Vibration', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'CSEDU 2010 - Computer Supported Education', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Journal of Hydroinformatics', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Acta Acustica United with Acustica', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Chemometrics and Intelligent Laboratory Systems', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'MICCAI', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Desalination and Water Treatment', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'WSEAS: Distance Learning and Web Engineering', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Progress in Electromagnetics Research', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'INMMIC', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Journal of Electromagnetic Waves and Applications', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'WSEAS Transactions on Communications', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Micromachines', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Physica Medica', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Journal of Optics A: Pure and Applied Optics', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Electromagnetic Biology and Medicine', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Televisión', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Applied Science', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Nuevas apuestas educativas', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Desarrollo de grandes aplicaciones de red', 'N/A'),
+
+(gen_random_uuid(), now(), now(), null, 'Avances en calidad ambiental', 'N/A');
 
 -- Articles
 
-INSERT INTO public.articles (uuid, creationDate, modificationDate, deletedDate, title, doi, authors, url_github, type, cites, journal, publishYear) VALUES
-(gen_random_uuid(), now(), now(), null, 'Efficient design of electromagnetic field exposure maps with multi-method evolutionary ensembles', '10.1016/j.envres.2025.121636', 'Jorge Guillén-Pina; Jorge Pérez-Aracil; Ricardo Chocano-del-Cerro; Rocío Sánchez-Montero; Pablo-Luis López-Espí; Sancho Salcedo-Sanz', null, 'ARTICLE', 0, 'Environmental Research', '2025'),
+INSERT INTO public.articles (uuid, creationDate, modificationDate, deletedDate, title, doi, authors, url_github, type, cites, publishYear, id_journal) 
 
-(gen_random_uuid(), now(), now(), null, 'Miniaturized Flat Archimedean Spiral Antenna', '10.13052/2025.ACES.J.400104', 'Miguel Fernandez-Munoz; Nerea Munoz-Mateos; Rocio Sanchez-Montero; Pablo Luis Lopez-Espi; Juan Antonio Martinez-Rojas; Efren Diez-Jimenez', null, 'ARTICLE', 0, 'Applied Computational Electromagnetics Society Journal (ACES)', '2025'),
+SELECT gen_random_uuid(), now(), now(), null, 'Efficient design of electromagnetic field exposure maps with multi-method evolutionary ensembles', '10.1016/j.envres.2025.121636', 'Jorge Guillén-Pina; Jorge Pérez-Aracil; Ricardo Chocano-del-Cerro; Rocío Sánchez-Montero; Pablo-Luis López-Espí; Sancho Salcedo-Sanz', null, 'ARTICLE', 0, '2025', j.id FROM journals j WHERE j.name = 'Environmental Research' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Optimal design of electromagnetic field exposure maps in large areas', '10.1016/J.EIAR.2024.107525', 'Lopez-Espi, P. L.; Sanchez-Montero, R.; Guillen-Pina, J.; Chocano-del-Cerro, R.; Rojas, J. A. M.', null, 'ARTICLE', 2, 'Environmental Impact Assessment Review', '2024'),
+SELECT gen_random_uuid(), now(), now(), null, 'Miniaturized Flat Archimedean Spiral Antenna', '10.13052/2025.ACES.J.400104', 'Miguel Fernandez-Munoz; Nerea Munoz-Mateos; Rocio Sanchez-Montero; Pablo Luis Lopez-Espi; Juan Antonio Martinez-Rojas; Efren Diez-Jimenez', null, 'ARTICLE', 0, '2025', j.id FROM journals j WHERE j.name = 'Applied Computational Electromagnetics Society Journal (ACES)' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Fully Integrated Miniaturized Wireless Power Transfer Rectenna for Medical Applications Tested inside Biological Tissues', '10.3390/electronics13163159', 'Miguel Fernandez-Munoz; Mohamed Missous; Mohammadreza Sadeghi; Pablo Luis Lopez-Espi; Rocio Sanchez-Montero; Juan Antonio Martinez-Rojas; Efren Diez-Jimenez', null, 'ARTICLE', 7, 'Electronics', '2024'),
+SELECT gen_random_uuid(), now(), now(), null, 'Optimal design of electromagnetic field exposure maps in large areas', '10.1016/J.EIAR.2024.107525', 'Lopez-Espi, P. L.; Sanchez-Montero, R.; Guillen-Pina, J.; Chocano-del-Cerro, R.; Rojas, J. A. M.', null, 'ARTICLE', 2, '2024', j.id FROM journals j WHERE j.name = 'Environmental Impact Assessment Review' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Model‐based systems engineering approach to the study of electromagnetic interference and compatibility in wireless powered microelectromechanical systems', '10.1002/sys.21733', 'Juan A. Martinez‐Rojas; Jose L. Fernandez‐Sanchez; Miguel Fernandez‐Munoz; Rocio Sanchez‐Montero; Pablo L. Lopez‐Espi; Efren Diez‐Jimenez', null, 'ARTICLE', 2, 'Systems Engineering', '2024'),
+SELECT gen_random_uuid(), now(), now(), null, 'Fully Integrated Miniaturized Wireless Power Transfer Rectenna for Medical Applications Tested inside Biological Tissues', '10.3390/electronics13163159', 'Miguel Fernandez-Munoz; Mohamed Missous; Mohammadreza Sadeghi; Pablo Luis Lopez-Espi; Rocio Sanchez-Montero; Juan Antonio Martinez-Rojas; Efren Diez-Jimenez', null, 'ARTICLE', 7, '2024', j.id FROM journals j WHERE j.name = 'Electronics' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Smartphone-Based Methodology Applied to Electromagnetic Field Exposure Assessment', '10.3390/s24113561', 'Pablo-Luis López-Espí; Rocío Sánchez-Montero; Jorge Guillén-Pina; Rubén Castro-Sanz; Ricardo Chocano-del-Cerro; Juan-Antonio Martínez-Rojas', null, 'ARTICLE', 3, 'Sensors', '2024'),
+SELECT gen_random_uuid(), now(), now(), null, 'Model‐based systems engineering approach to the study of electromagnetic interference and compatibility in wireless powered microelectromechanical systems', '10.1002/sys.21733', 'Juan A. Martinez‐Rojas; Jose L. Fernandez‐Sanchez; Miguel Fernandez‐Munoz; Rocio Sanchez‐Montero; Pablo L. Lopez‐Espi; Efren Diez‐Jimenez', null, 'ARTICLE', 2, '2024', j.id FROM journals j WHERE j.name = 'Systems Engineering' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Miniaturized High Gain Flexible Spiral Antenna Tested in Human-Like Tissues', '10.1109/TNANO.2022.3225912', 'Miguel Fernandez-Munoz; Rocio Sanchez-Montero; Pablo Luis Lopez-Espi; Juan A. Martinez-Rojas; Efren Diez-Jimenez', null, 'ARTICLE', 7, 'IEEE Transactions on Nanotechnology', '2022'),
+SELECT gen_random_uuid(), now(), now(), null, 'Smartphone-Based Methodology Applied to Electromagnetic Field Exposure Assessment', '10.3390/s24113561', 'Pablo-Luis López-Espí; Rocío Sánchez-Montero; Jorge Guillén-Pina; Rubén Castro-Sanz; Ricardo Chocano-del-Cerro; Juan-Antonio Martínez-Rojas', null, 'ARTICLE', 3, '2024', j.id FROM journals j WHERE j.name = 'Sensors' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'New Cable Delay Measurement System for VGOS Stations', '10.3390/s22062308', 'Pablo García Carreño; Javier González-García; María Patino-Esteban; Francisco Javier Beltrán Martínez; Marta Bautista-Durán; Pablo-Luis Lopez-Espi; José A. López-Pérez', null, 'ARTICLE', 3, 'Sensors', '2022'),
+SELECT gen_random_uuid(), now(), now(), null, 'Miniaturized High Gain Flexible Spiral Antenna Tested in Human-Like Tissues', '10.1109/TNANO.2022.3225912', 'Miguel Fernandez-Munoz; Rocio Sanchez-Montero; Pablo Luis Lopez-Espi; Juan A. Martinez-Rojas; Efren Diez-Jimenez', null, 'ARTICLE', 7, '2022', j.id FROM journals j WHERE j.name = 'IEEE Transactions on Nanotechnology' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Model-Based Systems Engineering Applied to Trade-Off Analysis of Wireless Power Transfer Technologies for Implanted Biomedical Microdevices', '10.3390/s21093201', 'Juan Antonio Martínez Rojas; José L. Fernández; Rocio Sanchez-Montero; Pablo-Luis Lopez-Espi; Efren Diez-Jimenez', null, 'ARTICLE', 26, 'Sensors', '2021'),
+SELECT gen_random_uuid(), now(), now(), null, 'New Cable Delay Measurement System for VGOS Stations', '10.3390/s22062308', 'Pablo García Carreño; Javier González-García; María Patino-Esteban; Francisco Javier Beltrán Martínez; Marta Bautista-Durán; Pablo-Luis Lopez-Espi; José A. López-Pérez', null, 'ARTICLE', 3, '2022', j.id FROM journals j WHERE j.name = 'Sensors' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Design of a Multi-Band Microstrip Textile Patch Antenna for LTE and 5G Services with the CRO-SL Ensemble', '10.3390/app10031168', 'Carlos Camacho-Gomez; Rocio Sanchez-Montero; Diego Martínez-Villanueva; Pablo-Luis Lopez-Espi; Sancho Salcedo-Sanz', null, 'ARTICLE', 31, 'Applied Sciences', '2020'),
+SELECT gen_random_uuid(), now(), now(), null, 'Model-Based Systems Engineering Applied to Trade-Off Analysis of Wireless Power Transfer Technologies for Implanted Biomedical Microdevices', '10.3390/s21093201', 'Juan Antonio Martínez Rojas; José L. Fernández; Rocio Sanchez-Montero; Pablo-Luis Lopez-Espi; Efren Diez-Jimenez', null, 'ARTICLE', 26, '2021', j.id FROM journals j WHERE j.name = 'Sensors' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Analysis of the geometric parameters influence in PCB fixtures for 2D multipole magnetization patterning of thin layer micro-magnets', '10.3233/JAE-180121', 'Martinez-Munoz, Miriam; Diez-Jimenez, Efren; Sanchez-Montero, Rocio; Luis Lopez-Espi, Pablo; Antonio Martinez-Rojas, Juan', null, 'ARTICLE', 8, 'International Journal of Applied Electromagnetics and Mechanics', '2019'),
+SELECT gen_random_uuid(), now(), now(), null, 'Design of a Multi-Band Microstrip Textile Patch Antenna for LTE and 5G Services with the CRO-SL Ensemble', '10.3390/app10031168', 'Carlos Camacho-Gomez; Rocio Sanchez-Montero; Diego Martínez-Villanueva; Pablo-Luis Lopez-Espi; Sancho Salcedo-Sanz', null, 'ARTICLE', 31, '2020', j.id FROM journals j WHERE j.name = 'Applied Sciences' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Bend and Moisture Effects on the Performance of a U-Shaped Slotted Wearable Antenna for Off-Body Communications in an Industrial Scientific Medical (ISM) 2.4 GHz band', '10.3390/S19081804', 'Sanchez-Montero, Rocio; Lopez-Espi, Pablo-Luis; Alen-Cordero, Cristina; Martinez-Rojas, Juan-Antonio', null, 'ARTICLE', 31, 'Sensors', '2019'),
+SELECT gen_random_uuid(), now(), now(), null, 'Analysis of the geometric parameters influence in PCB fixtures for 2D multipole magnetization patterning of thin layer micro-magnets', '10.3233/JAE-180121', 'Martinez-Munoz, Miriam; Diez-Jimenez, Efren; Sanchez-Montero, Rocio; Luis Lopez-Espi, Pablo; Antonio Martinez-Rojas, Juan', null, 'ARTICLE', 8, '2019', j.id FROM journals j WHERE j.name = 'International Journal of Applied Electromagnetics and Mechanics' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Filtering of Mammograms Based on Convolution with Directional Fractal Masks to Enhance Microcalcifications', '10.3390/app9061194', 'Rocio Sanchez-Montero; Juan-Antonio Martinez-Rojas; Pablo-Luis Lopez-Espi; Luis Nuñez-Martin; Efren Diez-Jimenez', null, 'ARTICLE', 5, 'Applied Sciences', '2019'),
+SELECT gen_random_uuid(), now(), now(), null, 'Bend and Moisture Effects on the Performance of a U-Shaped Slotted Wearable Antenna for Off-Body Communications in an Industrial Scientific Medical (ISM) 2.4 GHz band', '10.3390/S19081804', 'Sanchez-Montero, Rocio; Lopez-Espi, Pablo-Luis; Alen-Cordero, Cristina; Martinez-Rojas, Juan-Antonio', null, 'ARTICLE', 31, '2019', j.id FROM journals j WHERE j.name = 'Sensors' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Optimal Design of a Planar Textile Antenna for Industrial Scientific Medical (ISM) 2.4 GHz Wireless Body Area Networks (WBAN) with the CRO-SL Algorithm', '10.3390/s18071982', 'Rocio Sanchez-Montero; Carlos Camacho-Gómez; Pablo-Luis López-Espi; Sancho Salcedo-Sanz', null, 'ARTICLE', 34, 'Sensors', '2018'),
+SELECT gen_random_uuid(), now(), now(), null, 'Filtering of Mammograms Based on Convolution with Directional Fractal Masks to Enhance Microcalcifications', '10.3390/app9061194', 'Rocio Sanchez-Montero; Juan-Antonio Martinez-Rojas; Pablo-Luis Lopez-Espi; Luis Nuñez-Martin; Efren Diez-Jimenez', null, 'ARTICLE', 5, '2019', j.id FROM journals j WHERE j.name = 'Applied Sciences' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Numerical Study of Focusing Effects of Microwaves inside Wood Due to Timber Ring Structure', '10.3390/f9030106', 'Rocio Sanchez-Montero; Pablo-Luis López-Espi; Juan Antonio Martínez-Rojas; Jesús Alpuente-Hermosilla; Cristina Alen-Cordero', null, 'ARTICLE', 7, 'Forests', '2018'),
+SELECT gen_random_uuid(), now(), now(), null, 'Optimal Design of a Planar Textile Antenna for Industrial Scientific Medical (ISM) 2.4 GHz Wireless Body Area Networks (WBAN) with the CRO-SL Algorithm', '10.3390/s18071982', 'Rocio Sanchez-Montero; Carlos Camacho-Gómez; Pablo-Luis López-Espi; Sancho Salcedo-Sanz', null, 'ARTICLE', 34, '2018', j.id FROM journals j WHERE j.name = 'Sensors' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Effect of the anatomical structure, wood properties and machining conditions on surface roughness of wood', '10.4067/S0718-221X2017005000018', 'Laina, R.; Sanz-Lobera, A.; Villasante, A.; López-Espí, P.; Martínez-Rojas, J.A.; Alpuente, J.; Sánchez-Montero, R.; Vignote, S.', null, 'ARTICLE', 49, 'Maderas: Ciencia y Tecnologia', '2017'),
+SELECT gen_random_uuid(), now(), now(), null, 'Numerical Study of Focusing Effects of Microwaves inside Wood Due to Timber Ring Structure', '10.3390/f9030106', 'Rocio Sanchez-Montero; Pablo-Luis López-Espi; Juan Antonio Martínez-Rojas; Jesús Alpuente-Hermosilla; Cristina Alen-Cordero', null, 'ARTICLE', 7, '2018', j.id FROM journals j WHERE j.name = 'Forests' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Long term variations measurement of electromagnetic field exposures in Alcalá de Henares (Spain)', '10.1016/j.scitotenv.2017.03.131', 'Sánchez-Montero, R.; Alén-Cordero, C.; López-Espí, P.L.; Rigelsford, J.M.; Aguilera-Benavente, F.; Alpuente-Hermosilla, J.', null, 'ARTICLE', 23, 'Science of the Total Environment', '2017'),
+SELECT gen_random_uuid(), now(), now(), null, 'Effect of the anatomical structure, wood properties and machining conditions on surface roughness of wood', '10.4067/S0718-221X2017005000018', 'Laina, R.; Sanz-Lobera, A.; Villasante, A.; López-Espí, P.; Martínez-Rojas, J.A.; Alpuente, J.; Sánchez-Montero, R.; Vignote, S.', null, 'ARTICLE', 49, '2017', j.id FROM journals j WHERE j.name = 'Maderas: Ciencia y Tecnologia' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Geodetic VLBI ultra low noise broad-band receiver for 13 meter VGOS radiotelescopes', '10.1109/EuMIC.2016.7777595', 'García-Carreño, P.; García-Álvaro, S.; López-Pérez, J.A.; Patino-Esteban, M.; Serna, J.M.; Vaquero-Jiménez, B.; López-Fernández, J.A.; López-Espí, P.-L.; Sánchez-Montero, R.', null, 'CONFERENCE', 11, 'EuMIC 2016 - 11th European Microwave Integrated Circuits Conference', '2016'),
+SELECT gen_random_uuid(), now(), now(), null, 'Long term variations measurement of electromagnetic field exposures in Alcalá de Henares (Spain)', '10.1016/j.scitotenv.2017.03.131', 'Sánchez-Montero, R.; Alén-Cordero, C.; López-Espí, P.L.; Rigelsford, J.M.; Aguilera-Benavente, F.; Alpuente-Hermosilla, J.', null, 'ARTICLE', 23, '2017', j.id FROM journals j WHERE j.name = 'Science of the Total Environment' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Multi frequency feed system for high magnification Cassegrain radiotelescopes at millimeter wavelengths', '10.1109/EuMC.2016.7824583', 'Ruiz, S.L.; Martínez, F.T.; Fernández, J.A.L.; Han, S.-T.;López-Espí, P.-L.; Sánchez-Montero, R.; Martínez, F.J.B.', null, 'CONFERENCE', 1, 'European Microwave Week 2016: ''Microwave Everywhere'', EuMW 2016 - Conference Proceedings; 46th European Microwave Conference, EuMC 2016', '2016'),
+SELECT gen_random_uuid(), now(), now(), null, 'Geodetic VLBI ultra low noise broad-band receiver for 13 meter VGOS radiotelescopes', '10.1109/EuMIC.2016.7777595', 'García-Carreño, P.; García-Álvaro, S.; López-Pérez, J.A.; Patino-Esteban, M.; Serna, J.M.; Vaquero-Jiménez, B.; López-Fernández, J.A.; López-Espí, P.-L.; Sánchez-Montero, R.', null, 'CONFERENCE', 11, '2016', j.id FROM journals j WHERE j.name = 'EuMIC 2016 - 11th European Microwave Integrated Circuits Conference' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Optimization of a Conical Corrugated Antenna Using Multiobjective Heuristics for Radio-Astronomy Applications', '10.1155/2016/7024704', 'S. López-Ruiz; R. Sánchez Montero; F. Tercero-Martínez; P. L. López-Espí; J. A. López-Fernandez', null, 'ARTICLE', 6, 'International Journal of Antennas and Propagation', '2016'),
+SELECT gen_random_uuid(), now(), now(), null, 'Multi frequency feed system for high magnification Cassegrain radiotelescopes at millimeter wavelengths', '10.1109/EuMC.2016.7824583', 'Ruiz, S.L.; Martínez, F.T.; Fernández, J.A.L.; Han, S.-T.;López-Espí, P.-L.; Sánchez-Montero, R.; Martínez, F.J.B.', null, 'CONFERENCE', 1, '2016', j.id FROM journals j WHERE j.name = 'European Microwave Week 2016: ''Microwave Everywhere'', EuMW 2016 - Conference Proceedings; 46th European Microwave Conference, EuMC 2016' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'A decision aid method for lesion delineation based on directional fractal filtering', null, 'Sanchez-Montero, R.; Nunez-Martin, L.; Lopez-Espi, P. L.; Martinez-Rojas, J. A.; Castro-Tejero, P.; Alpuente-Hermosilla, J.', null, 'ARTICLE', 0, 'Radiotherapy and Oncology', '2015'),
+SELECT gen_random_uuid(), now(), now(), null, 'Optimization of a Conical Corrugated Antenna Using Multiobjective Heuristics for Radio-Astronomy Applications', '10.1155/2016/7024704', 'S. López-Ruiz; R. Sánchez Montero; F. Tercero-Martínez; P. L. López-Espí; J. A. López-Fernandez', null, 'ARTICLE', 6, '2016', j.id FROM journals j WHERE j.name = 'International Journal of Antennas and Propagation' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'An active multiband antenna for future wireless communications', '10.1109/EuCAP.2014.6902456', 'Sanchez-Montero, R.; Rigelsford, J.M.; Lopez-Espi, P.L.; Alpuente-Hermosilla, J.', null, 'CONFERENCE', 2, '8th European Conference on Antennas and Propagation, EuCAP 2014', '2014'),
+SELECT gen_random_uuid(), now(), now(), null, 'A decision aid method for lesion delineation based on directional fractal filtering', null, 'Sanchez-Montero, R.; Nunez-Martin, L.; Lopez-Espi, P. L.; Martinez-Rojas, J. A.; Castro-Tejero, P.; Alpuente-Hermosilla, J.', null, 'ARTICLE', 0, '2015', j.id FROM journals j WHERE j.name = 'Radiotherapy and Oncology' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Polyspectral technique for the analysis of stress-waves characteristics and species recognition in wood veneers', '10.1016/j.apacoust.2014.06.003', 'Sánchez Montero, R.; López Espí, P.L.; Alpuente, J.; Rojas, J.A.M.; Vignote, S.', null, 'ARTICLE', 2, 'Applied Acoustics', '2014'),
+SELECT gen_random_uuid(), now(), now(), null, 'An active multiband antenna for future wireless communications', '10.1109/EuCAP.2014.6902456', 'Sanchez-Montero, R.; Rigelsford, J.M.; Lopez-Espi, P.L.; Alpuente-Hermosilla, J.', null, 'CONFERENCE', 2, '2014', j.id FROM journals j WHERE j.name = '8th European Conference on Antennas and Propagation, EuCAP 2014' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Multiple band antenna optimization using heuristics and bio-inspired optimization algorithms', '10.1109/LAPC.2012.6403028', 'Sanchez-Montero, R.; Lopez-Espi, P.L.; Cruz-Rodriguez, A.C.; Rigelsford, J.M.', null, 'CONFERENCE', 6, 'LAPC 2012 - 2012 Loughborough Antennas and Propagation Conference', '2012'),
+SELECT gen_random_uuid(), now(), now(), null, 'Polyspectral technique for the analysis of stress-waves characteristics and species recognition in wood veneers', '10.1016/j.apacoust.2014.06.003', 'Sánchez Montero, R.; López Espí, P.L.; Alpuente, J.; Rojas, J.A.M.; Vignote, S.', null, 'ARTICLE', 2, '2014', j.id FROM journals j WHERE j.name = 'Applied Acoustics' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Spectral biomimetic technique for wood classification inspired by human echolocation', '10.1155/2012/378361', 'Martínez Rojas, J.A.; Vignote Peña, S.; Alpuente Hermosilla, J.; Sánchez Montero, R.; López Espí, P.L.; Martínez Rojas, I.', null, 'ARTICLE', 2, 'Advances in Acoustics and Vibration', '2012'),
+SELECT gen_random_uuid(), now(), now(), null, 'Multiple band antenna optimization using heuristics and bio-inspired optimization algorithms', '10.1109/LAPC.2012.6403028', 'Sanchez-Montero, R.; Lopez-Espi, P.L.; Cruz-Rodriguez, A.C.; Rigelsford, J.M.', null, 'CONFERENCE', 6, '2012' , j.id FROM journals j WHERE j.name = 'LAPC 2012 - 2012 Loughborough Antennas and Propagation Conference' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'An experience to include advanced optimization techniques in microwave undergraduate laboratories', null, 'López-Espi, P.; Salcedo-Sanz, S.; Sánchez-Montero, R.; Portilla-Figueras, A.', null, 'CONFERENCE', 0, 'CSEDU 2010 - 2nd International Conference on Computer Supported Education, Proceedings', '2010'),
+SELECT gen_random_uuid(), now(), now(), null, 'Spectral biomimetic technique for wood classification inspired by human echolocation', '10.1155/2012/378361', 'Martínez Rojas, J.A.; Vignote Peña, S.; Alpuente Hermosilla, J.; Sánchez Montero, R.; López Espí, P.L.; Martínez Rojas, I.', null, 'ARTICLE', 2, '2012', j.id FROM journals j WHERE j.name = 'Advances in Acoustics and Vibration' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Nitrates/nitrites concentration estimation in wastewater samples using transmittance curve models optimized by evolutionary computation techniques', '10.2166/hydro.2010.016', 'López-Espí, P.; Salcedo-Sanz, S.; Pérez-Bellido, Á.M.; De Bustamante, I.; López-Ferreras, F.', null, 'ARTICLE', 1, 'Journal of Hydroinformatics', '2010'),
+SELECT gen_random_uuid(), now(), now(), null, 'An experience to include advanced optimization techniques in microwave undergraduate laboratories', null, 'López-Espi, P.; Salcedo-Sanz, S.; Sánchez-Montero, R.; Portilla-Figueras, A.', null, 'CONFERENCE', 0, '2010', j.id FROM journals j WHERE j.name = 'CSEDU 2010 - 2nd International Conference on Computer Supported Education, Proceedings' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Physical Analysis of Several Organic Signals for Human Echolocation: Hand and Finger Produced Pulses', '10.3813/AAA.918368', 'Martinez Rojas, Juan Antonio; Alpuente Hermosilla, Jesús; Sanchez Montero, Rocio; Lopez Espi, Pablo Luis', null, 'ARTICLE', 40, 'Acta Acustica United with Acustica', '2010'),
+SELECT gen_random_uuid(), now(), now(), null, 'Nitrates/nitrites concentration estimation in wastewater samples using transmittance curve models optimized by evolutionary computation techniques', '10.2166/hydro.2010.016', 'López-Espí, P.; Salcedo-Sanz, S.; Pérez-Bellido, Á.M.; De Bustamante, I.; López-Ferreras, F.', null, 'ARTICLE', 1, '2010', j.id FROM journals j WHERE j.name = 'Journal of Hydroinformatics' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Curve fitting using heuristics and bio-inspired optimization algorithms for experimental data processing in chemistry', '10.1016/j.chemolab.2008.11.004', 'Polo-Corpa, M.J.; Salcedo-Sanz, S.; Pérez-Bellido, A.M.; López-Espí, P.; Benavente, R.; Pérez, E.', null, 'ARTICLE', 18, 'Chemometrics and Intelligent Laboratory Systems', '2009'),
+SELECT gen_random_uuid(), now(), now(), null, 'Physical Analysis of Several Organic Signals for Human Echolocation: Hand and Finger Produced Pulses', '10.3813/AAA.918368', 'Martinez Rojas, Juan Antonio; Alpuente Hermosilla, Jesús; Sanchez Montero, Rocio; Lopez Espi, Pablo Luis', null, 'ARTICLE', 40, '2010', j.id FROM journals j WHERE j.name = 'Acta Acustica United with Acustica' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Estimating the Concentration of Nitrates in Water Samples Using PSO and VNS Approaches', '10.1007/978-3-642-01129-0_17', 'Lopez-Espi, Pablo; Salcedo-Sanz, Sancho; Perez-Bellido, A. M.; Ortiz-Garcia, Emilio G.; Alonso-Garrido, Oscar; Portilla-Figueras, Antonio', null, 'CONFERENCE', 0, 'International Conference on Medical Image Computing and Computer Assisted Intervention - MICCAI', '2009'),
+SELECT gen_random_uuid(), now(), now(), null, 'Curve fitting using heuristics and bio-inspired optimization algorithms for experimental data processing in chemistry', '10.1016/j.chemolab.2008.11.004', 'Polo-Corpa, M.J.; Salcedo-Sanz, S.; Pérez-Bellido, A.M.; López-Espí, P.; Benavente, R.; Pérez, E.', null, 'ARTICLE', 18, '2009', j.id FROM journals j WHERE j.name = 'Chemometrics and Intelligent Laboratory Systems' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Physical Analysis of Several Organic Signals for Human Echolocation: Oral Vacuum Pulses', '10.3813/AAA.918155', 'Martinez Rojas, Juan Antonio; Alpuente Hermosilla, Jesús; Sanchez Montero, Rocio; Lopez Espi, Pablo Luis', null, 'ARTICLE', 96, 'Acta Acustica United with Acustica', '2009'),
+SELECT gen_random_uuid(), now(), now(), null, 'Estimating the Concentration of Nitrates in Water Samples Using PSO and VNS Approaches', '10.1007/978-3-642-01129-0_17', 'Lopez-Espi, Pablo; Salcedo-Sanz, Sancho; Perez-Bellido, A. M.; Ortiz-Garcia, Emilio G.; Alonso-Garrido, Oscar; Portilla-Figueras, Antonio', null, 'CONFERENCE', 0, '2009', j.id FROM journals j WHERE j.name = 'International Conference on Medical Image Computing and Computer Assisted Intervention - MICCAI' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Using electrical resistivity tomography (ERT) to evaluate the infiltration in land application systems. A case study in the Carrion de los Cespedes wastewater treatment plant (Seville, Spain)', '10.5004/DWT.2009.364', 'Lillo, F. J.; Gomez-Ortiz, D.; Martin-Crespo, T.; Carreno, F.; De Bustamante, I.; Lopez, P. L.', null, 'ARTICLE', 0, 'Desalination and Water Treatment', '2009'),
+SELECT gen_random_uuid(), now(), now(), null, 'Physical Analysis of Several Organic Signals for Human Echolocation: Oral Vacuum Pulses', '10.3813/AAA.918155', 'Martinez Rojas, Juan Antonio; Alpuente Hermosilla, Jesús; Sanchez Montero, Rocio; Lopez Espi, Pablo Luis', null, 'ARTICLE', 96, '2009', j.id FROM journals j WHERE j.name = 'Acta Acustica United with Acustica' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Electromagnetic Analysis of Band-Pass Filters Using Half Wavelength Hollow Resonators', null, 'Lopez, Pablo L.; Zamanillo, Jose M.; Sanchez, Rocio; Pasamon, Jose F.; Calvo, Francisco; Perez, Carlos', null, 'ARTICLE', 0, 'DIWEB '' 09: PROCEEDINGS OF THE 9TH WSEAS INTERNATIONAL CONFERENCE ON DISTANCE LEARNING AND WEB ENGINEERING', '2008'),
+SELECT gen_random_uuid(), now(), now(), null, 'Using electrical resistivity tomography (ERT) to evaluate the infiltration in land application systems. A case study in the Carrion de los Cespedes wastewater treatment plant (Seville, Spain)', '10.5004/DWT.2009.364', 'Lillo, F. J.; Gomez-Ortiz, D.; Martin-Crespo, T.; Carreno, F.; De Bustamante, I.; Lopez, P. L.', null, 'ARTICLE', 0, '2009', j.id FROM journals j WHERE j.name = 'Desalination and Water Treatment' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Empirical characterization of wood surfaces by means of iterative autocorrelation of laser speckle patterns', '10.2528/PIER07112706', 'Rojas, J.A.M.; Alpuente, J.; Bolívar, E.; López-Espí, P.; Rojas, I.M.; Vignote, S.', null, 'ARTICLE', 7, 'Progress in Electromagnetics Research', '2008'),
+SELECT gen_random_uuid(), now(), now(), null, 'Electromagnetic Analysis of Band-Pass Filters Using Half Wavelength Hollow Resonators', null, 'Lopez, Pablo L.; Zamanillo, Jose M.; Sanchez, Rocio; Pasamon, Jose F.; Calvo, Francisco; Perez, Carlos', null, 'ARTICLE', 0, '2008', j.id FROM journals j WHERE j.name = 'DIWEB '' 09: PROCEEDINGS OF THE 9TH WSEAS INTERNATIONAL CONFERENCE ON DISTANCE LEARNING AND WEB ENGINEERING' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Fractal convolution techniques for speckle noise reduction', null, 'Martínez-Rojas, J.-A.; Sánchez-Montero, R.; Alpuente-Hermosilla, J.; López-Espí, P.', null, 'CONFERENCE', 1, '2008 5th European Radar Conference Proceedings, EuRAD 2008', '2008'),
+SELECT gen_random_uuid(), now(), now(), null, 'Empirical characterization of wood surfaces by means of iterative autocorrelation of laser speckle patterns', '10.2528/PIER07112706', 'Rojas, J.A.M.; Alpuente, J.; Bolívar, E.; López-Espí, P.; Rojas, I.M.; Vignote, S.', null, 'ARTICLE', 7, '2008', j.id FROM journals j WHERE j.name = 'Progress in Electromagnetics Research' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'High Frequency Circuits and Systems', null, 'Sainz de la Maza, Jose Maria Zamanillo; Espi, Pablo Luis Lopez', null, 'ARTICLE', 0, 'DIWEB '' 09: PROCEEDINGS OF THE 9TH WSEAS INTERNATIONAL CONFERENCE ON DISTANCE LEARNING AND WEB ENGINEERING', '2008'),
+SELECT gen_random_uuid(), now(), now(), null, 'Fractal convolution techniques for speckle noise reduction', null, 'Martínez-Rojas, J.-A.; Sánchez-Montero, R.; Alpuente-Hermosilla, J.; López-Espí, P.', null, 'CONFERENCE', 1, '2008', j.id FROM journals j WHERE j.name = '2008 5th European Radar Conference Proceedings, EuRAD 2008' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Microwave Active Devices modeling using Verilog-A description language', null, 'Zamanillo, J. M.; Lopez-Espi, P. L.; Rivera, Sergio; Cobo, Beatriz; Torres, Raquel; Mediavilla, Angel; Perez-Vega, C', null, 'ARTICLE', 0, 'DIWEB '' 09: PROCEEDINGS OF THE 9TH WSEAS INTERNATIONAL CONFERENCE ON DISTANCE LEARNING AND WEB ENGINEERING', '2008'),
+SELECT gen_random_uuid(), now(), now(), null, 'High Frequency Circuits and Systems', null, 'Sainz de la Maza, Jose Maria Zamanillo; Espi, Pablo Luis Lopez', null, 'ARTICLE', 0, '2008', j.id FROM journals j WHERE j.name = 'DIWEB '' 09: PROCEEDINGS OF THE 9TH WSEAS INTERNATIONAL CONFERENCE ON DISTANCE LEARNING AND WEB ENGINEERING' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'The Versatility of Verilog-A Based Models on Commercial Microwave Simulators', '10.1109/INMMIC.2008.4745740', 'Zamanillo, J. M.; Zamanillo, I.; Campelo, J.; Mediavilla, A.; Perez-Vega, C.; Lopez-Espi, P. L.; Torres, R.', null, 'ARTICLE', 2, 'WORKSHOP ON INTEGRATED NONLINEAR MICROWAVE AND MILLIMETRE- WAVE CIRCUITS (INMMIC)', '2008'),
+SELECT gen_random_uuid(), now(), now(), null, 'Microwave Active Devices modeling using Verilog-A description language', null, 'Zamanillo, J. M.; Lopez-Espi, P. L.; Rivera, Sergio; Cobo, Beatriz; Torres, Raquel; Mediavilla, Angel; Perez-Vega, C', null, 'ARTICLE', 0, '2008', j.id FROM journals j WHERE j.name = 'DIWEB '' 09: PROCEEDINGS OF THE 9TH WSEAS INTERNATIONAL CONFERENCE ON DISTANCE LEARNING AND WEB ENGINEERING' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Accurate model of electromagnetic wave propagation in unidimensional photonic crystals with defects', '10.1163/156939307781749795', 'Rojas, J.A.M.; Alpuente, J.; López-Espí, P.; García, P.', null, 'ARTICLE', 15, 'Journal of Electromagnetic Waves and Applications', '2007'),
+SELECT gen_random_uuid(), now(), now(), null, 'The Versatility of Verilog-A Based Models on Commercial Microwave Simulators', '10.1109/INMMIC.2008.4745740', 'Zamanillo, J. M.; Zamanillo, I.; Campelo, J.; Mediavilla, A.; Perez-Vega, C.; Lopez-Espi, P. L.; Torres, R.', null, 'ARTICLE', 2, '2008', j.id FROM journals j WHERE j.name = 'WORKSHOP ON INTEGRATED NONLINEAR MICROWAVE AND MILLIMETRE- WAVE CIRCUITS (INMMIC)' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'A general development for fleets control system', null, 'Granja-Antón, J.C.; Alpuente-Hermosilla, J.; Sánchez-Montero, R.; López-Espí, P.L.', null, 'ARTICLE', 0, 'WSEAS Transactions on Communications', '2006'),
+SELECT gen_random_uuid(), now(), now(), null, 'Accurate model of electromagnetic wave propagation in unidimensional photonic crystals with defects', '10.1163/156939307781749795', 'Rojas, J.A.M.; Alpuente, J.; López-Espí, P.; García, P.', null, 'ARTICLE', 15, '2007', j.id FROM journals j WHERE j.name = 'Journal of Electromagnetic Waves and Applications' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Study of the Optimal Waveforms for Non-Destructive Spectral Analysis of Aqueous Solutions by Means of Audible Sound and Optimization Algorithms', '10.3390/app11167301', 'Pilar García Díaz; Manuel Utrilla Manso; Jesús Alpuente Hermosilla; Juan A. Martínez Rojas', null, 'ARTICLE', 1, 'Applied Sciences', '2021'),
+SELECT gen_random_uuid(), now(), now(), null, 'A general development for fleets control system', null, 'Granja-Antón, J.C.; Alpuente-Hermosilla, J.; Sánchez-Montero, R.; López-Espí, P.L.', null, 'ARTICLE', 0, '2006', j.id FROM journals j WHERE j.name = 'WSEAS Transactions on Communications' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'A collapsed-cone based transit EPID dosimetry method', '10.1016/j.ejmp.2018.01.006', 'Jaime Martínez-Ortega; María Pinto-Monedero; Nuría Gómez-González; Naresh B.-Tolani; Pablo Castro-Tejero; Miguel Castanedo-Álvarez; Luis Núñez-Martín; Rocio Sanchez-Montero', null, 'ARTICLE', 6, 'Physica Medica', '2018'),
+SELECT gen_random_uuid(), now(), now(), null, 'Study of the Optimal Waveforms for Non-Destructive Spectral Analysis of Aqueous Solutions by Means of Audible Sound and Optimization Algorithms', '10.3390/app11167301', 'Pilar García Díaz; Manuel Utrilla Manso; Jesús Alpuente Hermosilla; Juan A. Martínez Rojas', null, 'ARTICLE', 1, '2021', j.id FROM journals j WHERE j.name = 'Applied Sciences' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Towards Miniaturization of Magnetic Gears: Torque Performance Assessment', '10.3390/mi9010016', 'Efren Díaz-Jimenez; Rocio Sanchez-Montero; Miriam Martinez-Muñoz', null, 'ARTICLE', 23, 'Micromachines', '2017'),
+SELECT gen_random_uuid(), now(), now(), null, 'A collapsed-cone based transit EPID dosimetry method', '10.1016/j.ejmp.2018.01.006', 'Jaime Martínez-Ortega; María Pinto-Monedero; Nuría Gómez-González; Naresh B.-Tolani; Pablo Castro-Tejero; Miguel Castanedo-Álvarez; Luis Núñez-Martín; Rocio Sanchez-Montero', null, 'ARTICLE', 6, '2018', j.id FROM journals j WHERE j.name = 'Physica Medica' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'HYBRID PIFA-PATCH ANTENNA OPTIMIZED BY EVOLUTIONARY PROGRAMMING', '10.2528/pier10072804', 'Rocio Sanchez-Montero; Sancho Salcedo-Sanz; J. A. Portilla-Figueras; Richard Langley', null, 'ARTICLE', 24, 'Progress In Electromagnetics Research', '2010'),
+SELECT gen_random_uuid(), now(), now(), null, 'Towards Miniaturization of Magnetic Gears: Torque Performance Assessment', '10.3390/mi9010016', 'Efren Díaz-Jimenez; Rocio Sanchez-Montero; Miriam Martinez-Muñoz', null, 'ARTICLE', 23, '2017', j.id FROM journals j WHERE j.name = 'Micromachines' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'RIGOROUS FULL VECTORIAL ANALYSIS OF ELECTROMAGNETIC WAVE PROPAGATION IN 1D', '10.2528/pier06042501', 'Juan Antonio Martinez Rojas; Jesús Alpuente; JosÃ© PiÃ±eiro; Rocio Sanchez-Montero', null, 'ARTICLE', 41, 'Progress In Electromagnetics Research', '2006'),
+SELECT gen_random_uuid(), now(), now(), null, 'HYBRID PIFA-PATCH ANTENNA OPTIMIZED BY EVOLUTIONARY PROGRAMMING', '10.2528/pier10072804', 'Rocio Sanchez-Montero; Sancho Salcedo-Sanz; J. A. Portilla-Figueras; Richard Langley', null, 'ARTICLE', 24, '2010', j.id FROM journals j WHERE j.name = 'Progress In Electromagnetics Research' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Design Accelerator: uso de videotutoriales para el diseño de máquinas en el MUII', '978-84-16978-11-3', 'Del Castillo, H. y Nogueiras, G. (Ed.)', null, 'BOOK', 0, 'Nuevas apuestas educativas [Recurso electrónico]', '2017'),
+SELECT gen_random_uuid(), now(), now(), null, 'RIGOROUS FULL VECTORIAL ANALYSIS OF ELECTROMAGNETIC WAVE PROPAGATION IN 1D', '10.2528/pier06042501', 'Juan Antonio Martinez Rojas; Jesús Alpuente; JosÃ© PiÃ±eiro; Rocio Sanchez-Montero', null, 'ARTICLE', 41, '2006', j.id FROM journals j WHERE j.name = 'Progress In Electromagnetics Research' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Microondas prácticas con genesys', '978-84-8138-902-9', 'Rocio Sánchez Montero', null, 'BOOK', 0, null, '2011'),
+SELECT gen_random_uuid(), now(), now(), null, 'Design Accelerator: uso de videotutoriales para el diseño de máquinas en el MUII', '978-84-16978-11-3', 'Del Castillo, H. y Nogueiras, G. (Ed.)', null, 'BOOK', 0, '2017', j.id FROM journals j WHERE j.name = 'Nuevas apuestas educativas [Recurso electrónico]' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Wood species identification using stress-wave analysis in the audible range', '10.1016/j.apacoust.2011.05.016', 'Juan A. Martinez‐Rojas; Jesús Alpuente-Hermosilla; D. Postigo; I.M Rojas; Santiago Vignote', null, 'ARTICLE', 0, 'Applied Acoustics', '2011'),
+SELECT gen_random_uuid(), now(), now(), null, 'Microondas prácticas con genesys', '978-84-8138-902-9', 'Rocio Sánchez Montero', null, 'BOOK', 0, '2011', null UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Fractal-based image enhancement techniques inspired by differential interference contrast microscopy', '10.1088/1464-4258/11/6/065503', 'Juan A. Martinez‐Rojas; Jesús Alpuente-Hermosilla; I.M Rojas; Santiago Vignote', null, 'ARTICLE', 6, 'Journal of Optics A: Pure and Applied Optics', '2009'),
+SELECT gen_random_uuid(), now(), now(), null, 'Wood species identification using stress-wave analysis in the audible range', '10.1016/j.apacoust.2011.05.016', 'Juan A. Martinez‐Rojas; Jesús Alpuente-Hermosilla; D. Postigo; I.M Rojas; Santiago Vignote', null, 'ARTICLE', 0, '2011', j.id FROM journals j WHERE j.name = 'Applied Acoustics' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Modelado eficiente de dispositivos activos de microondas utilizando código Verilog-A', '978-84-613-4894-7', 'Maciá Pérez, F. (Ed.)', null, 'BOOK', 0, 'Desarrollo de grandes aplicaciones de red', '2009'),
+SELECT gen_random_uuid(), now(), now(), null, 'Fractal-based image enhancement techniques inspired by differential interference contrast microscopy', '10.1088/1464-4258/11/6/065503', 'Juan A. Martinez‐Rojas; Jesús Alpuente-Hermosilla; I.M Rojas; Santiago Vignote', null, 'ARTICLE', 6, '2009', j.id FROM journals j WHERE j.name = 'Journal of Optics A: Pure and Applied Optics' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Study of leaky modes in high contrast Bragg fibres', '10.1088/1464-4258/9/10/009', 'Juan A. Martinez‐Rojas; Jesús Alpuente-Hermosilla; P. Lopez; Rocio Sanchez-Montero', null, 'ARTICLE', 5, 'Journal of Optics A: Pure and Applied Optics', '2007'),
+SELECT gen_random_uuid(), now(), now(), null, 'Modelado eficiente de dispositivos activos de microondas utilizando código Verilog-A', '978-84-613-4894-7', 'Maciá Pérez, F. (Ed.)', null, 'BOOK', 0, '2009', j.id FROM journals j WHERE j.name = 'Desarrollo de grandes aplicaciones de red' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Líneas de transmisión y redes de adaptación en circuitos de microondas', '84-8138-461-5', 'Alpuente Hermosilla, Jesús', null, 'BOOK', 4, null, '2006'),
+SELECT gen_random_uuid(), now(), now(), null, 'Study of leaky modes in high contrast Bragg fibres', '10.1088/1464-4258/9/10/009', 'Juan A. Martinez‐Rojas; Jesús Alpuente-Hermosilla; P. Lopez; Rocio Sanchez-Montero', null, 'ARTICLE', 5, '2007', j.id FROM journals j WHERE j.name = 'Journal of Optics A: Pure and Applied Optics' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Microondas prácticas', '84-8138-617-0', 'Sanchez-Montero, R.; Lopez-Espi, P.L.; Alpuente-Hermosilla, Jesús', null, 'BOOK', 1, null, '2004'),
+SELECT gen_random_uuid(), now(), now(), null, 'Líneas de transmisión y redes de adaptación en circuitos de microondas', '84-8138-461-5', 'Alpuente Hermosilla, Jesús', null, 'BOOK', 4, '2006', null UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Teoría de circuitos de microondas: parámetros S.', '84-8138-623-5', 'Sanchez-Montero, R.', null, 'BOOK', 0, null, '2004'),
+SELECT gen_random_uuid(), now(), now(), null, 'Microondas prácticas', '84-8138-617-0', 'Sanchez-Montero, R.; Lopez-Espi, P.L.; Alpuente-Hermosilla, Jesús', null, 'BOOK', 1, '2004', null UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Aplicación de tecnologías limpias en riegos con aguas residuales: distribución automatizada y reutilización', '84-7800-811-X', 'Márquez Moreno, M.C.; Ramos Castellanos P. (Ed.)', null, 'BOOK', 0, 'Avances en calidad ambiental', '2002'),
+SELECT gen_random_uuid(), now(), now(), null, 'Teoría de circuitos de microondas: parámetros S.', '84-8138-623-5', 'Sanchez-Montero, R.', null, 'BOOK', 0, '2004', null UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Bone density changes in mouse offspring after 50-Hz, 15-μT electromagnetic field long-term exposure of two generations', null, 'R. Vera,M. L. Picazo,M. Royuela,M. A. Romo,J. Alpuente &J. L. Bardasano', null, 'ARTICLE', 0, 'Electromagnetic Biology and Medicine', '1999'),
+SELECT gen_random_uuid(), now(), now(), null, 'Aplicación de tecnologías limpias en riegos con aguas residuales: distribución automatizada y reutilización', '84-7800-811-X', 'Márquez Moreno, M.C.; Ramos Castellanos P. (Ed.)', null, 'BOOK', 0, '2002', j.id FROM journals j WHERE j.name = 'Avances en calidad ambiental' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Televisión', '84-86981-02-6', 'Alpuente Hermosilla, Jesús', null, 'BOOK', 0, null, '1988'),
+SELECT gen_random_uuid(), now(), now(), null, 'Bone density changes in mouse offspring after 50-Hz, 15-μT electromagnetic field long-term exposure of two generations', null, 'R. Vera,M. L. Picazo,M. Royuela,M. A. Romo,J. Alpuente &J. L. Bardasano', null, 'ARTICLE', 0, '1999', j.id FROM journals j WHERE j.name = 'Electromagnetic Biology and Medicine' UNION ALL
 
-(gen_random_uuid(), now(), now(), null, 'Comparison Between Broadband and Personal Exposimeter Measurements for EMF Exposure Map Development Using Evolutionary Programming', 'https://doi.org/10.3390/app15137471', 'Nájera, Alberto; Sánchez Montero, Rocio; González Rubio, Jesús; Guillén Pina, Jorge; Chocano del Cerro, Ricardo; López Espí, Pablo Luis', null, 'ARTICLE', 0, 'Applied Science', '2025');
+SELECT gen_random_uuid(), now(), now(), null, 'Televisión', '84-86981-02-6', 'Alpuente Hermosilla, Jesús', null, 'BOOK', 0, '1988', null UNION ALL
+
+SELECT gen_random_uuid(), now(), now(), null, 'Comparison Between Broadband and Personal Exposimeter Measurements for EMF Exposure Map Development Using Evolutionary Programming', 'https://doi.org/10.3390/app15137471', 'Nájera, Alberto; Sánchez Montero, Rocio; González Rubio, Jesús; Guillén Pina, Jorge; Chocano del Cerro, Ricardo; López Espí, Pablo Luis', null, 'ARTICLE', 0, '2025',j.id FROM journals j WHERE j.name = 'Applied Science';
+
 
 -- Notifications
 
@@ -509,7 +594,7 @@ aplicaciones de comunicación inalámbrica.
 INSERT INTO public.computers (
     uuid, creationDate, modificationDate, deletedDate,
     name, adminUser, adminPassword, ipAddress,
-    remote, haveStudent, studentName, studentUser, studentPassword, so
+    remote, haveStudent, studentName, studentUser, studentPassword, so, location
 ) VALUES (
     gen_random_uuid(),
     now()::text,
@@ -524,13 +609,14 @@ INSERT INTO public.computers (
     'Juan Pérez',
     'juanp',
     'studPass456',
-    'Windows 11 Pro'
+    'Windows 11 Pro',
+    'S24'
 );
 
 INSERT INTO public.computers (
     uuid, creationDate, modificationDate, deletedDate,
     name, adminUser, adminPassword, ipAddress,
-    remote, haveStudent, studentName, studentUser, studentPassword, so
+    remote, haveStudent, studentName, studentUser, studentPassword, so, location
 ) VALUES (
     gen_random_uuid(),
     now()::text,
@@ -545,5 +631,30 @@ INSERT INTO public.computers (
     NULL,
     NULL,
     NULL,
-    'Ubuntu 22.04 LTS'
+    'Ubuntu 22.04 LTS',
+    'S24'
 );
+
+-- Softwares
+
+INSERT INTO public.softwares (uuid, creationDate, modificationDate, deletedDate, name, location, description)
+VALUES (gen_random_uuid(), now(), now(), null, 'Ansys R15', 'S24', 'Software para desarrollo, caracterización, optimización y simulación de antenas.');
+
+
+-- Signal Devices
+
+INSERT INTO public.signal_devices (uuid, creationDate, modificationDate, deletedDate, brand, name, type, freq_start, freq_stop, polarization, visaAddress, conexionType, location) VALUES 
+
+(gen_random_uuid(), now(), now(), null, 'Agilent', '8714ES', 'PROCESING', '300 kHz', '3 GHz', null, 'TCPIP::192.168.79.150::SOCKET', 'Ethernet', 'PL15'),
+
+(gen_random_uuid(), now(), now(), null, 'Rohde & Schwarz', 'FSH8', 'PROCESING', '300 kHz', '6 GHz', null, 'TCPIP::192.168.77.203::INSTR', 'Ethernet', 'S24'),
+
+(gen_random_uuid(), now(), now(), null, 'Aaronia', 'ISOLog 3D Mobile 9030 PRO', 'ANTENA', '300 kHz', '8 GHz', 'X, Y, Z', null, 'Axial', 'S24');
+
+
+-- Material Devices
+
+INSERT INTO public.material_devices (uuid, creationDate, modificationDate, deletedDate, brand, name, type, use, location) VALUES 
+
+(gen_random_uuid(), now(), now(), null, 'ADALM Pluto', 'SDR', 'ELECTRONIC', 'INVESTIGACION', 'S24');
+

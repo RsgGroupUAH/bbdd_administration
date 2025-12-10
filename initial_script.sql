@@ -3,6 +3,7 @@ drop table if EXISTS usuario cascade;
 drop table if EXISTS navbar cascade;
 drop table if EXISTS role_navbar cascade;
 drop table if EXISTS articles;
+drop table if EXISTS journals;
 drop table if EXISTS projects;
 drop table if EXISTS tasks;
 drop table if EXISTS tasks_user;
@@ -11,6 +12,9 @@ drop table if EXISTS notifications;
 drop table if EXISTS status_actions;
 drop table if EXISTS works;
 drop table if EXISTS computers;
+drop table if EXISTS softwares;
+drop table if EXISTS signal_devices;
+drop table if EXISTS material_devices;
 
 
 
@@ -190,6 +194,46 @@ CREATE INDEX IF NOT EXISTS role_navbar_idx_uuid
 -- ---------------------------------------------------------------------------------
 
 
+CREATE SEQUENCE IF NOT EXISTS public.journals_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+ALTER SEQUENCE public.journals_id_seq     OWNER TO postgres;
+
+
+CREATE TABLE IF NOT EXISTS public.journals
+(
+    id integer NOT NULL DEFAULT nextval('journals_id_seq'::regclass),
+    uuid text COLLATE pg_catalog."default" NOT NULL,
+    creationDate text NOT NULL,
+    modificationDate text NOT NULL,
+    deletedDate text,
+    name text NOT NULL,
+    quartil text NOT NULL,
+	CONSTRAINT journals_pkey PRIMARY KEY (id),
+	CONSTRAINT unique_journals_uuid UNIQUE (uuid),
+	CONSTRAINT unique_journals_title UNIQUE (name)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.journals     OWNER to postgres;
+
+ALTER SEQUENCE IF EXISTS journals_id_seq OWNED BY journals.id;
+
+
+CREATE INDEX IF NOT EXISTS journals_idx_uuid
+    ON public.journals USING btree
+    (uuid)
+    TABLESPACE pg_default;
+
+
+-- ---------------------------------------------------------------------------------
+
+
 CREATE SEQUENCE IF NOT EXISTS public.articles_id_seq
     INCREMENT 1
     START 1
@@ -213,11 +257,15 @@ CREATE TABLE IF NOT EXISTS public.articles
     url_github text,
     type text NOT NULL,
     cites integer,
-    journal text,
     publishYear text NOT NULL,
+    id_journal int,
 	CONSTRAINT articles_pkey PRIMARY KEY (id),
 	CONSTRAINT unique_articles_uuid UNIQUE (uuid),
-	CONSTRAINT unique_articles_title UNIQUE (title)
+	CONSTRAINT unique_articles_title UNIQUE (title),
+    CONSTRAINT articles_id_journal_fkey FOREIGN KEY (id_journal)
+        REFERENCES public.journals (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
 )
 
 TABLESPACE pg_default;
@@ -231,7 +279,6 @@ CREATE INDEX IF NOT EXISTS articles_idx_uuid
     ON public.articles USING btree
     (uuid)
     TABLESPACE pg_default;
-
 
 -- --------------------------------------------------------------------
 
@@ -567,6 +614,7 @@ CREATE TABLE IF NOT EXISTS public.computers
     studentUser TEXT,
     studentPassword TEXT,
     so TEXT NOT NULL,
+    location TEXT NOT NULL,
 	CONSTRAINT computers_pkey PRIMARY KEY (id),
 	CONSTRAINT unique_computers_uuid UNIQUE (uuid)
 )
@@ -580,5 +628,131 @@ ALTER SEQUENCE IF EXISTS computers_id_seq OWNED BY computers.id;
 
 CREATE INDEX IF NOT EXISTS computers_idx_uuid
     ON public.computers USING btree
+    (uuid)
+    TABLESPACE pg_default;
+
+
+-- --------------------------------------------------------------------
+
+
+CREATE SEQUENCE IF NOT EXISTS public.softwares_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+ALTER SEQUENCE public.softwares_id_seq     OWNER TO postgres;
+CREATE TABLE IF NOT EXISTS public.softwares
+(
+    id integer NOT NULL DEFAULT nextval('softwares_id_seq'::regclass),
+    uuid text COLLATE pg_catalog."default" NOT NULL,
+    creationDate text NOT NULL,
+    modificationDate text NOT NULL,
+    deletedDate text,
+    name text NOT NULL,
+    location text NOT NULL,
+    description TEXT,
+	CONSTRAINT softwares_pkey PRIMARY KEY (id),
+	CONSTRAINT unique_softwares_uuid UNIQUE (uuid)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.softwares     OWNER to postgres;
+
+ALTER SEQUENCE IF EXISTS softwares_id_seq OWNED BY softwares.id;
+
+
+CREATE INDEX IF NOT EXISTS softwares_idx_uuid
+    ON public.softwares USING btree
+    (uuid)
+    TABLESPACE pg_default;
+
+
+-- --------------------------------------------------------------------
+
+
+CREATE SEQUENCE IF NOT EXISTS public.signal_devices_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+ALTER SEQUENCE public.signal_devices_id_seq     OWNER TO postgres;
+
+
+CREATE TABLE IF NOT EXISTS public.signal_devices
+(
+    id integer NOT NULL DEFAULT nextval('signal_devices_id_seq'::regclass),
+    uuid text COLLATE pg_catalog."default" NOT NULL,
+    creationDate text NOT NULL,
+    modificationDate text NOT NULL,
+    deletedDate text,
+    brand text,
+    name TEXT Not NULL,
+    type Text NOT NULL,
+    freq_start text,
+    freq_stop text,
+    polarization text,
+    visaAddress text,
+    conexionType text,
+    location TEXT NOT NULL,
+	CONSTRAINT signal_devices_pkey PRIMARY KEY (id),
+	CONSTRAINT unique_signal_devices_uuid UNIQUE (uuid)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.signal_devices     OWNER to postgres;
+
+ALTER SEQUENCE IF EXISTS signal_devices_id_seq OWNED BY signal_devices.id;
+
+
+CREATE INDEX IF NOT EXISTS signal_devices_idx_uuid
+    ON public.signal_devices USING btree
+    (uuid)
+    TABLESPACE pg_default;
+
+
+-- --------------------------------------------------------------------
+
+
+CREATE SEQUENCE IF NOT EXISTS public.material_devices_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+ALTER SEQUENCE public.material_devices_id_seq     OWNER TO postgres;
+
+
+CREATE TABLE IF NOT EXISTS public.material_devices 
+(
+    id integer NOT NULL DEFAULT nextval('material_devices_id_seq'::regclass),
+    uuid text COLLATE pg_catalog."default" NOT NULL,
+    creationDate text NOT NULL,
+    modificationDate text NOT NULL,
+    deletedDate text,
+    brand text,
+    name TEXT NOT NULL,
+    type text NOT NULL,
+    use text NOT NULL,
+    location TEXT NOT NULL,
+	CONSTRAINT material_devices_pkey PRIMARY KEY (id),
+	CONSTRAINT unique_material_devices_uuid UNIQUE (uuid)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.material_devices     OWNER to postgres;
+
+ALTER SEQUENCE IF EXISTS material_devices_id_seq OWNED BY material_devices.id;
+
+
+CREATE INDEX IF NOT EXISTS material_devices_idx_uuid
+    ON public.material_devices USING btree
     (uuid)
     TABLESPACE pg_default;
