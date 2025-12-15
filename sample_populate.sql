@@ -28,6 +28,7 @@ INSERT INTO public.usuario (uuid, creationDate, modificationDate, deletedDate, f
 
 INSERT INTO public.navbar (uuid, creationDate, modificationDate, deletedDate, code, title) VALUES ('ab13e77b-5dcf-4cc8-ba00-3397c49604dc', now(), now(), null, 'DASH', 'Dashboards');
 INSERT INTO public.navbar (uuid, creationDate, modificationDate, deletedDate, code, title) VALUES ('188fba85-bd13-47cd-9944-fa789846df57', now(), now(), null, 'LABS', 'Laboratorios');
+INSERT INTO public.navbar (uuid, creationDate, modificationDate, deletedDate, code, title) VALUES ('54b726f0-8229-4df0-ae34-09e03b0b517f', now(), now(), null, 'GEO', 'Geoportal');
 INSERT INTO public.navbar (uuid, creationDate, modificationDate, deletedDate, code, title) VALUES ('82eb8aab-8bda-4f6e-8183-159402acdb82', now(), now(), null, 'ART', 'Artículos');
 INSERT INTO public.navbar (uuid, creationDate, modificationDate, deletedDate, code, title) VALUES ('be22634a-7a80-4376-b389-91e752025485', now(), now(), null, 'JOU', 'Revistas');
 INSERT INTO public.navbar (uuid, creationDate, modificationDate, deletedDate, code, title) VALUES ('a2d74875-7186-4abe-8af1-300dd4c7d7f2', now(), now(), null, 'PRO', 'Proyectos');
@@ -40,6 +41,7 @@ INSERT INTO public.navbar (uuid, creationDate, modificationDate, deletedDate, co
 
 INSERT INTO public.role_navbar (uuid, creationDate, modificationDate, deletedDate, id_navbar, id_role) SELECT '61c4fe14-a3ec-4bdd-8e4f-0984d484a304', now(), now(), null, n.id, r.id FROM navbar n CROSS JOIN user_role r WHERE n.code = 'DASH' AND r.name = 'Administrador';
 INSERT INTO public.role_navbar (uuid, creationDate, modificationDate, deletedDate, id_navbar, id_role) SELECT 'f2f7a877-6d80-4335-9c24-788405e4fd81', now(), now(), null, n.id, r.id FROM navbar n CROSS JOIN user_role r WHERE n.code = 'LABS' AND r.name = 'Administrador';
+INSERT INTO public.role_navbar (uuid, creationDate, modificationDate, deletedDate, id_navbar, id_role) SELECT 'a73a2fe5-7b47-4cb5-90e5-f2e6912c0ac4', now(), now(), null, n.id, r.id FROM navbar n CROSS JOIN user_role r WHERE n.code = 'GEO' AND r.name = 'Administrador';
 INSERT INTO public.role_navbar (uuid, creationDate, modificationDate, deletedDate, id_navbar, id_role) SELECT '92842523-8589-4db9-9761-bfbfb806b483', now(), now(), null, n.id, r.id FROM navbar n CROSS JOIN user_role r WHERE n.code = 'ART' AND r.name = 'Administrador';
 INSERT INTO public.role_navbar (uuid, creationDate, modificationDate, deletedDate, id_navbar, id_role) SELECT '0e656e11-21f9-4491-8e62-e03c9b594b1e', now(), now(), null, n.id, r.id FROM navbar n CROSS JOIN user_role r WHERE n.code = 'JOU' AND r.name = 'Administrador';
 INSERT INTO public.role_navbar (uuid, creationDate, modificationDate, deletedDate, id_navbar, id_role) SELECT '444273f0-19d1-43a4-b707-6907bed71603', now(), now(), null, n.id, r.id FROM navbar n CROSS JOIN user_role r WHERE n.code = 'PRO' AND r.name = 'Administrador';
@@ -52,77 +54,77 @@ INSERT INTO public.role_navbar (uuid, creationDate, modificationDate, deletedDat
 
 INSERT INTO public.journals (uuid, creationDate, modificationDate, deletedDate, name, quartil) VALUES
 
-(gen_random_uuid(), now(), now(), null, 'Environmental Research', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'Environmental Research', 'Q1'),
 
-(gen_random_uuid(), now(), now(), null, 'Applied Computational Electromagnetics Society Journal (ACES)', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'Applied Computational Electromagnetics Society Journal (ACES)', 'Q3'),
 
-(gen_random_uuid(), now(), now(), null, 'Environmental Impact Assessment Review', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'Environmental Impact Assessment Review', 'Q1'),
 
-(gen_random_uuid(), now(), now(), null, 'Electronics', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'Electronics', 'Q2'),
 
-(gen_random_uuid(), now(), now(), null, 'Systems Engineering', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'Systems Engineering', 'Q3'),
 
-(gen_random_uuid(), now(), now(), null, 'Sensors', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'Sensors', 'Q1'),
 
-(gen_random_uuid(), now(), now(), null, 'IEEE Transactions on Nanotechnology', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'IEEE Transactions on Nanotechnology', 'Q2'),
 
-(gen_random_uuid(), now(), now(), null, 'Applied Sciences', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'Applied Sciences', 'Q2'),
 
-(gen_random_uuid(), now(), now(), null, 'International Journal of Applied Electromagnetics and Mechanics', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'International Journal of Applied Electromagnetics and Mechanics', 'Q4'),
 
-(gen_random_uuid(), now(), now(), null, 'Maderas: Ciencia y Tecnologia', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'Maderas: Ciencia y Tecnologia', 'Q2'),
 
-(gen_random_uuid(), now(), now(), null, 'Science of the Total Environment', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'Science of the Total Environment', 'Q1'),
 
 (gen_random_uuid(), now(), now(), null, 'EuMIC 2016 - 11th European Microwave Integrated Circuits Conference', 'N/A'),
 
 (gen_random_uuid(), now(), now(), null, 'European Microwave Week 2016', 'N/A'),
 
-(gen_random_uuid(), now(), now(), null, 'International Journal of Antennas and Propagation', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'International Journal of Antennas and Propagation', 'Q3'),
 
-(gen_random_uuid(), now(), now(), null, 'Radiotherapy and Oncology', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'Radiotherapy and Oncology', 'Q1'),
 
 (gen_random_uuid(), now(), now(), null, '8th European Conference on Antennas and Propagation, EuCAP 2014', 'N/A'),
 
-(gen_random_uuid(), now(), now(), null, 'Applied Acoustics', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'Applied Acoustics', 'Q1'),
 
 (gen_random_uuid(), now(), now(), null, 'LAPC 2012 - Loughborough Antennas and Propagation Conference', 'N/A'),
 
-(gen_random_uuid(), now(), now(), null, 'Advances in Acoustics and Vibration', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'Advances in Acoustics and Vibration', 'Q4'),
 
 (gen_random_uuid(), now(), now(), null, 'CSEDU 2010 - Computer Supported Education', 'N/A'),
 
-(gen_random_uuid(), now(), now(), null, 'Journal of Hydroinformatics', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'Journal of Hydroinformatics', 'Q2'),
 
 (gen_random_uuid(), now(), now(), null, 'Acta Acustica United with Acustica', 'N/A'),
 
-(gen_random_uuid(), now(), now(), null, 'Chemometrics and Intelligent Laboratory Systems', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'Chemometrics and Intelligent Laboratory Systems', 'Q2'),
 
 (gen_random_uuid(), now(), now(), null, 'MICCAI', 'N/A'),
 
-(gen_random_uuid(), now(), now(), null, 'Desalination and Water Treatment', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'Desalination and Water Treatment', 'Q2'),
 
 (gen_random_uuid(), now(), now(), null, 'WSEAS: Distance Learning and Web Engineering', 'N/A'),
 
-(gen_random_uuid(), now(), now(), null, 'Progress in Electromagnetics Research', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'Progress in Electromagnetics Research', 'Q1'),
 
 (gen_random_uuid(), now(), now(), null, 'INMMIC', 'N/A'),
 
-(gen_random_uuid(), now(), now(), null, 'Journal of Electromagnetic Waves and Applications', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'Journal of Electromagnetic Waves and Applications', 'Q3'),
 
 (gen_random_uuid(), now(), now(), null, 'WSEAS Transactions on Communications', 'N/A'),
 
-(gen_random_uuid(), now(), now(), null, 'Micromachines', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'Micromachines', 'Q2'),
 
-(gen_random_uuid(), now(), now(), null, 'Physica Medica', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'Physica Medica', 'Q1'),
 
 (gen_random_uuid(), now(), now(), null, 'Journal of Optics A: Pure and Applied Optics', 'N/A'),
 
-(gen_random_uuid(), now(), now(), null, 'Electromagnetic Biology and Medicine', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'Electromagnetic Biology and Medicine', 'Q3'),
 
 (gen_random_uuid(), now(), now(), null, 'Televisión', 'N/A'),
 
-(gen_random_uuid(), now(), now(), null, 'Applied Science', 'N/A'),
+(gen_random_uuid(), now(), now(), null, 'Applied Science', 'Q1'),
 
 (gen_random_uuid(), now(), now(), null, 'Nuevas apuestas educativas', 'N/A'),
 
