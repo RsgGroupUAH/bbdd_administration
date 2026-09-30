@@ -1,4 +1,46 @@
 
+COPY public.journals (id, uuid, creationdate, modificationdate, deleteddate, name, quartil) FROM stdin;
+1	39fa0c51-5aba-4f92-b86b-08a6e088741d	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Environmental Research	Q1
+2	97a75f59-15cb-41d4-8c45-7bd6f16674d8	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Applied Computational Electromagnetics Society Journal (ACES)	Q3
+3	555cb5d4-8f85-43e4-8091-627def632c20	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Environmental Impact Assessment Review	Q1
+4	f8487b2b-de17-4ec6-949b-83f754b7469b	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Electronics	Q2
+5	01680092-94ee-4377-bd99-380a62860407	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Systems Engineering	Q3
+6	556695d5-2703-47dd-93a0-2016cda4f640	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Sensors	Q1
+7	7bd7718c-cb37-4610-ade1-9f7e1b3d877c	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	IEEE Transactions on Nanotechnology	Q2
+8	ad38ee04-2d9a-4141-b81d-ef6d44221c7e	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Applied Sciences	Q2
+9	be57bff6-d877-4eba-b04b-335acae375cb	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	International Journal of Applied Electromagnetics and Mechanics	Q4
+10	36e99d88-500a-40c7-ae57-1e12520f967a	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Maderas: Ciencia y Tecnologia	Q2
+11	a4953ff3-3fe8-4d32-a270-454ff32ca882	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Science of the Total Environment	Q1
+12	0d4bdb70-bb98-4215-b93e-9fbb4f834dec	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	EuMIC 2016 - 11th European Microwave Integrated Circuits Conference	N/A
+13	a61e96d2-b5d2-4574-9ad5-b9cf5c63e3a5	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	European Microwave Week 2016	N/A
+14	09ef78e8-0a29-469f-94d6-47fe1584d027	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	International Journal of Antennas and Propagation	Q3
+15	a4cd78d7-3282-4bfc-962b-6bdd18c74c54	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Radiotherapy and Oncology	Q1
+16	d556d1e5-136d-46d5-a290-abde236f554b	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	8th European Conference on Antennas and Propagation, EuCAP 2014	N/A
+17	f649a5f0-0567-4f97-9975-31455df03386	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Applied Acoustics	Q1
+18	f648d5b2-0eee-41ed-a62f-92ab26a7d17a	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	LAPC 2012 - Loughborough Antennas and Propagation Conference	N/A
+19	a53ae686-4dda-41e1-a95c-177694f1c4e2	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Advances in Acoustics and Vibration	Q4
+20	437962b0-97e9-4392-818b-c7ad95e6dc37	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	CSEDU 2010 - Computer Supported Education	N/A
+21	b4056a5e-bb3a-4a72-85e3-2934357d0f71	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Journal of Hydroinformatics	Q2
+22	5e1ec5ca-0074-4331-bb03-416f68c48a7e	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Acta Acustica United with Acustica	N/A
+23	48026554-1e06-40d9-b740-461eb0dd591d	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Chemometrics and Intelligent Laboratory Systems	Q2
+24	17e36c5e-f2ca-409e-9250-eb52856c95b5	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	MICCAI	N/A
+25	0f3d1db3-2d8a-4eff-91b2-b842dfe5e4ef	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Desalination and Water Treatment	Q2
+26	961c6a54-b1e2-40fa-81d3-b82d359749d8	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	WSEAS: Distance Learning and Web Engineering	N/A
+27	67ac4f52-aff8-434e-9e3e-29882c40e82c	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Progress in Electromagnetics Research	Q1
+28	c0dd0a44-0ac7-4ee5-9fe3-235c2255ad19	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	INMMIC	N/A
+29	9b91df82-09cb-481e-a54e-2512678a1691	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Journal of Electromagnetic Waves and Applications	Q3
+30	dfa31895-3575-4cf0-81bc-17b2d4735368	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	WSEAS Transactions on Communications	N/A
+31	55c3cbc5-6d7a-4bc5-82ab-69ef187fa04a	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Micromachines	Q2
+32	f5f40bbe-5041-44a4-9370-6706781af43d	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Physica Medica	Q1
+33	7f5f765f-8c04-4e65-9604-ae0667e7059e	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Journal of Optics A: Pure and Applied Optics	N/A
+34	4397b439-c0c1-46d8-ab47-821fedc19742	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Electromagnetic Biology and Medicine	Q3
+35	dcecd4ea-56cc-4ad6-bac5-bda136e6a1f2	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Televisión	N/A
+36	85889e73-bfeb-4bab-b370-59c3e884b50a	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Applied Science	Q1
+37	78e3cedf-7f19-4695-b30f-1974b64588c6	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Nuevas apuestas educativas	N/A
+38	1d82b3bf-d086-448c-81ea-276271ea4fda	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Desarrollo de grandes aplicaciones de red	N/A
+39	e7c12426-62b1-4be2-873d-a6ec7666bd18	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Avances en calidad ambiental	N/A
+\.
+
 COPY public.articles (id, uuid, creationdate, modificationdate, deleteddate, title, doi, authors, url_github, type, cites, publishyear, id_journal) FROM stdin;
 2	1c053659-4168-4963-a63a-ddb7718a46ed	2025-12-16 11:40:25.677034+01	2025-12-16 11:40:25.677034+01	\N	Miniaturized Flat Archimedean Spiral Antenna	10.13052/2025.ACES.J.400104	Miguel Fernandez-Munoz; Nerea Munoz-Mateos; Rocio Sanchez-Montero; Pablo Luis Lopez-Espi; Juan Antonio Martinez-Rojas; Efren Diez-Jimenez	\N	ARTICLE	0	2025	2
 3	180272dd-9ed4-4d65-aa98-53e01bf276f6	2025-12-16 11:40:25.677034+01	2025-12-16 11:40:25.677034+01	\N	Optimal design of electromagnetic field exposure maps in large areas	10.1016/J.EIAR.2024.107525	Lopez-Espi, P. L.; Sanchez-Montero, R.; Guillen-Pina, J.; Chocano-del-Cerro, R.; Rojas, J. A. M.	\N	ARTICLE	2	2024	3
@@ -47,66 +89,9 @@ COPY public.articles (id, uuid, creationdate, modificationdate, deleteddate, tit
 1	0ced8a70-4bc1-4a1c-a099-d7f78cb1a88c	2025-12-16 11:40:25.677034+01	2026-04-28 09:54:14.319446	\N	Efficient design of electromagnetic field exposure maps with multi-method evolutionary ensembles	10.1016/j.envres.2025.121636	Jorge Guillén-Pina; Jorge Pérez-Aracil; Ricardo Chocano-del-Cerro; Rocío Sánchez-Montero; Pablo-Luis López-Espí; Sancho Salcedo-Sanz	\N	ARTICLE	0	2025	1
 \.
 
-
---
--- Data for Name: journals; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.journals (id, uuid, creationdate, modificationdate, deleteddate, name, quartil) FROM stdin;
-1	39fa0c51-5aba-4f92-b86b-08a6e088741d	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Environmental Research	Q1
-2	97a75f59-15cb-41d4-8c45-7bd6f16674d8	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Applied Computational Electromagnetics Society Journal (ACES)	Q3
-3	555cb5d4-8f85-43e4-8091-627def632c20	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Environmental Impact Assessment Review	Q1
-4	f8487b2b-de17-4ec6-949b-83f754b7469b	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Electronics	Q2
-5	01680092-94ee-4377-bd99-380a62860407	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Systems Engineering	Q3
-6	556695d5-2703-47dd-93a0-2016cda4f640	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Sensors	Q1
-7	7bd7718c-cb37-4610-ade1-9f7e1b3d877c	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	IEEE Transactions on Nanotechnology	Q2
-8	ad38ee04-2d9a-4141-b81d-ef6d44221c7e	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Applied Sciences	Q2
-9	be57bff6-d877-4eba-b04b-335acae375cb	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	International Journal of Applied Electromagnetics and Mechanics	Q4
-10	36e99d88-500a-40c7-ae57-1e12520f967a	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Maderas: Ciencia y Tecnologia	Q2
-11	a4953ff3-3fe8-4d32-a270-454ff32ca882	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Science of the Total Environment	Q1
-12	0d4bdb70-bb98-4215-b93e-9fbb4f834dec	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	EuMIC 2016 - 11th European Microwave Integrated Circuits Conference	N/A
-13	a61e96d2-b5d2-4574-9ad5-b9cf5c63e3a5	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	European Microwave Week 2016	N/A
-14	09ef78e8-0a29-469f-94d6-47fe1584d027	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	International Journal of Antennas and Propagation	Q3
-15	a4cd78d7-3282-4bfc-962b-6bdd18c74c54	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Radiotherapy and Oncology	Q1
-16	d556d1e5-136d-46d5-a290-abde236f554b	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	8th European Conference on Antennas and Propagation, EuCAP 2014	N/A
-17	f649a5f0-0567-4f97-9975-31455df03386	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Applied Acoustics	Q1
-18	f648d5b2-0eee-41ed-a62f-92ab26a7d17a	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	LAPC 2012 - Loughborough Antennas and Propagation Conference	N/A
-19	a53ae686-4dda-41e1-a95c-177694f1c4e2	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Advances in Acoustics and Vibration	Q4
-20	437962b0-97e9-4392-818b-c7ad95e6dc37	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	CSEDU 2010 - Computer Supported Education	N/A
-21	b4056a5e-bb3a-4a72-85e3-2934357d0f71	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Journal of Hydroinformatics	Q2
-22	5e1ec5ca-0074-4331-bb03-416f68c48a7e	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Acta Acustica United with Acustica	N/A
-23	48026554-1e06-40d9-b740-461eb0dd591d	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Chemometrics and Intelligent Laboratory Systems	Q2
-24	17e36c5e-f2ca-409e-9250-eb52856c95b5	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	MICCAI	N/A
-25	0f3d1db3-2d8a-4eff-91b2-b842dfe5e4ef	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Desalination and Water Treatment	Q2
-26	961c6a54-b1e2-40fa-81d3-b82d359749d8	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	WSEAS: Distance Learning and Web Engineering	N/A
-27	67ac4f52-aff8-434e-9e3e-29882c40e82c	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Progress in Electromagnetics Research	Q1
-28	c0dd0a44-0ac7-4ee5-9fe3-235c2255ad19	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	INMMIC	N/A
-29	9b91df82-09cb-481e-a54e-2512678a1691	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Journal of Electromagnetic Waves and Applications	Q3
-30	dfa31895-3575-4cf0-81bc-17b2d4735368	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	WSEAS Transactions on Communications	N/A
-31	55c3cbc5-6d7a-4bc5-82ab-69ef187fa04a	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Micromachines	Q2
-32	f5f40bbe-5041-44a4-9370-6706781af43d	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Physica Medica	Q1
-33	7f5f765f-8c04-4e65-9604-ae0667e7059e	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Journal of Optics A: Pure and Applied Optics	N/A
-34	4397b439-c0c1-46d8-ab47-821fedc19742	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Electromagnetic Biology and Medicine	Q3
-35	dcecd4ea-56cc-4ad6-bac5-bda136e6a1f2	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Televisión	N/A
-36	85889e73-bfeb-4bab-b370-59c3e884b50a	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Applied Science	Q1
-37	78e3cedf-7f19-4695-b30f-1974b64588c6	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Nuevas apuestas educativas	N/A
-38	1d82b3bf-d086-448c-81ea-276271ea4fda	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Desarrollo de grandes aplicaciones de red	N/A
-39	e7c12426-62b1-4be2-873d-a6ec7666bd18	2025-12-16 11:40:25.668378+01	2025-12-16 11:40:25.668378+01	\N	Avances en calidad ambiental	N/A
-\.
-
-
---
--- Data for Name: material_devices; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
 COPY public.material_devices (id, uuid, creationdate, modificationdate, deleteddate, brand, name, type, use, location) FROM stdin;
 1	4661820d-d9aa-4fba-b91d-9503ac17ef53	2025-12-16 11:40:25.843331+01	2025-12-16 11:40:25.843331+01	\N	ADALM Pluto	SDR	ELECTRONIC	INVESTIGACION	S24
 \.
-
-
---
--- Data for Name: navbar; Type: TABLE DATA; Schema: public; Owner: postgres
---
 
 COPY public.navbar (id, uuid, creationdate, modificationdate, deleteddate, code, title) FROM stdin;
 1	ab13e77b-5dcf-4cc8-ba00-3397c49604dc	2025-12-16 11:40:25.492458+01	2025-12-16 11:40:25.492458+01	\N	DASH	Dashboards
@@ -121,19 +106,9 @@ COPY public.navbar (id, uuid, creationdate, modificationdate, deleteddate, code,
 10	28013b71-d17b-42db-83b4-95ac57bc6f7e	2025-12-16 11:40:25.567878+01	2025-12-16 11:40:25.567878+01	\N	NOTI	Notificaciones
 \.
 
-
---
--- Data for Name: notifications; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
 COPY public.notifications (id, uuid, creationdate, modificationdate, deleteddate, priority, title, message) FROM stdin;
 1	78d95d24-bc28-4428-8999-bbd7597eb879	2025-12-16 11:40:25.726792+01	2025-12-19 09:44:39.457681	\N	HIGH	Usuarios CAU	Recordatorio para dar de alta nuevamente el accesso de los usuarios en el CAU
 \.
-
-
---
--- Data for Name: projects; Type: TABLE DATA; Schema: public; Owner: postgres
---
 
 COPY public.projects (id, uuid, creationdate, modificationdate, deleteddate, title, ref, authors, finance, type, startdate, enddate) FROM stdin;
 1	e9e75d7f-e07d-4e28-accb-ee8de6e61b97	2025-12-16 11:40:25.743536+01	2025-12-16 11:40:25.743536+01	\N	Metodología para la evaluación de la exposición personal en nuevas redes de telefonía móvil 5G.	REF 2022/00042/001, CM/JIN/2021-032	UAH, UCLM	Comunidad de Madrid	INVESTIGACION	01/01/2022	31/12/2023
@@ -162,10 +137,10 @@ COPY public.projects (id, uuid, creationdate, modificationdate, deleteddate, tit
 24	d29d0218-8878-4249-968a-aa93cd9909a9	2025-12-16 11:40:25.743536+01	2025-12-16 11:40:25.743536+01	\N	Prevención Inteligente del Riesgo de Incendios Forestales basada en estimación de Masa y Humedad de Combustible Vegetal en Guadalajara	UAH-CORTES CLM 2025-007	UAH	JCCLM	INVESTIGACION	16/09/2025	31/12/2025
 \.
 
-
---
--- Data for Name: role_navbar; Type: TABLE DATA; Schema: public; Owner: postgres
---
+COPY public.user_role (id, uuid, creationdate, modificationdate, deleteddate, name) FROM stdin;
+2	063bec4f-c1a7-4a27-9eb5-950298d5b726	2025-12-17 12:57:33.063748	2025-12-17 12:58:04.303997	\N	SuperAdmin
+1	e1b6c0a0-c439-4103-b447-a700edd23507	2025-12-16 11:40:25.33557+01	2025-12-17 12:58:13.311793	\N	Administrador
+\.
 
 COPY public.role_navbar (id, uuid, creationdate, modificationdate, deleteddate, id_navbar, id_role) FROM stdin;
 31	c52fd472-8a7f-4242-9b5b-1315a08feb2f	2025-12-17 12:58:04.465029	2025-12-17 12:58:04.465029	\N	1	2
@@ -187,11 +162,6 @@ COPY public.role_navbar (id, uuid, creationdate, modificationdate, deleteddate, 
 47	0dde9f2e-7642-48de-a5cf-48537778609b	2025-12-17 12:58:13.391611	2025-12-17 12:58:13.391611	\N	7	1
 48	ad202dc6-87b4-4bae-b62d-2b9ca35a1904	2025-12-17 12:58:13.399951	2025-12-17 12:58:13.399951	\N	8	1
 \.
-
-
---
--- Data for Name: signal_devices; Type: TABLE DATA; Schema: public; Owner: postgres
---
 
 COPY public.signal_devices (id, uuid, creationdate, modificationdate, deleteddate, brand, name, type, freq_start, freq_stop, polarization, visaaddress, conexiontype, location) FROM stdin;
 10	9e09cada-502e-432c-aeea-a97efd51f1b2	2025-12-17 14:00:33.179863	2026-02-11 12:36:24.980508	\N	Agilent Technologies	VNA E5071C	PROCESING	9 kHz	4,5 GHz		TCPIP::172.29.36.150::INSTR	N, Ethernet	PL15
@@ -237,11 +207,6 @@ COPY public.signal_devices (id, uuid, creationdate, modificationdate, deleteddat
 41	b417c903-016b-4d36-a0da-66d4c3e01e60	2026-02-16 11:16:14.826238	2026-02-16 11:16:14.826238	\N	EXFO	OTDR FTB-1	PROCESING	800 nm	1700 nm			FC	SL3
 \.
 
-
---
--- Data for Name: softwares; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
 COPY public.softwares (id, uuid, creationdate, modificationdate, deleteddate, name, location, description) FROM stdin;
 1	826813a3-a676-4b3b-bcc8-5c1d581cdb57	2025-12-16 11:40:25.82667+01	2025-12-16 11:40:25.82667+01	\N	Ansys R15	S24	Software para desarrollo, caracterización, optimización y simulación de antenas.
 2	b6c752b8-6f55-49ae-9180-dd383238e58b	2025-12-17 12:10:16.379944	2025-12-17 12:10:16.379944	\N	QGIS	S24	Programa de visualización de imágenes GEO
@@ -255,7 +220,6 @@ COPY public.softwares (id, uuid, creationdate, modificationdate, deleteddate, na
 10	ffdddb28-68e0-4e63-9b4d-ab577101769f	2025-12-17 12:15:56.762829	2025-12-17 12:15:56.762829	\N	FortClient VPN	S24	VPN para conectarse al Alcala 
 11	795eb227-e18f-4dde-9e40-e784779e6f58	2025-12-17 12:16:37.601041	2025-12-17 12:16:37.601041	\N	Adobe Acrobat Reader	S24	Para poder firmar documentos usando el lector de DNI`s
 \.
-
 
 COPY public.status_actions (id, uuid, creationdate, status, uuid_action, uuid_user, table_action) FROM stdin;
 1	3f3782b4-dbbe-405c-91cd-873ca477d8cd	2025-12-16 11:59:30.589683	UPDATE-PASS	c90fc766-db1a-4265-ba24-01eb3b7247c2	c90fc766-db1a-4265-ba24-01eb3b7247c2	USERS
@@ -478,11 +442,6 @@ COPY public.status_actions (id, uuid, creationdate, status, uuid_action, uuid_us
 218	70e10e8a-ab24-46d1-bc13-421b8fe3bb26	2026-04-28 09:54:14.371378	UPDATE	0ced8a70-4bc1-4a1c-a099-d7f78cb1a88c	c90fc766-db1a-4265-ba24-01eb3b7247c2	ARTICLES
 \.
 
-
---
--- Data for Name: tasks; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
 COPY public.tasks (id, uuid, creationdate, modificationdate, deleteddate, title, message, status, priority, limitdate) FROM stdin;
 5	b36a1afe-38e5-436c-ab57-1359ef168062	2025-12-16 11:40:25.751498+01	2025-12-16 13:13:12.588655	2025-12-16 13:13:12.588655	Despliegue del Geoportal	Desplegar el geoportal en un ordenador del laboratorio para empezar a trabajar con el y poder hacer pruebas	TODO	HIGH	09/10/2025
 8	e041e5cd-8610-43af-92a9-2e18c07055f1	2025-12-16 11:40:25.751498+01	2025-12-16 13:13:16.195671	2025-12-16 13:13:16.195671	Imagenes Satelitales CCLM	Sacar imagenes satelitales para poder calcular el indice pre-incendios	TODO	HIGH	09/10/2025
@@ -519,10 +478,13 @@ COPY public.tasks (id, uuid, creationdate, modificationdate, deleteddate, title,
 35	194bb474-5a00-4f33-ae8d-6220ebda957c	2026-01-23 10:32:29.313409	2026-02-03 13:50:35.457562	2026-02-03 13:50:35.457562	Implementar Toolbox y Kriging en Geoportal	\N	TODO	MEDIUM	\N
 \.
 
-
---
--- Data for Name: tasks_user; Type: TABLE DATA; Schema: public; Owner: postgres
---
+COPY public.usuario (id, uuid, creationdate, modificationdate, deleteddate, fullname, phone, email, password, imagepath, sessiontoken, sessiondate, id_role) FROM stdin;
+2	79b29c7d-7c09-4b79-9cbb-3d5a3a56fa00	2025-12-16 11:40:25.442536+01	2025-12-18 07:50:58.872584	\N	Jorge Guillén	644 45 32 91	jorge.guillenp@uah.es	0429ca1282e13fb62be2b581a424ca610ee2c5a59eade5c50128cb1b05273b40b5596a5df9b590d1bcb0fbd4a6686539f9c6b8299bf084f6ac581cdb034f1e62	JORGE-GUILLEN.jpg	KYhWxMrUm36OCdd	2025-12-18 07:50:58.872584	2
+3	93c73d47-5df7-4bfb-8925-925a458f1254	2025-12-16 11:40:25.475884+01	2026-02-18 08:47:31.525899	\N	María Samper	644 45 32 91	maria.samper@uah.es	b54ffe02256a91f913c3a5c00731237056bc4818a6058f1122985bd698045677ad4f7bc6e68f1295aa4416ec307c83ad0787759175e8d178996563ee03178cbd	MARIA-SAMPER.jpg	4KQLVYZihx1KZmI	2026-02-18 08:47:31.525899	1
+4	38eea687-c52d-442f-8b14-677e98f8aacb	2025-12-16 11:40:25.484255+01	2026-01-26 14:44:39.617991	\N	Ricardo Chocano	644 45 32 91	ricardo.chocano@uah.es	8869c155849c775743ab9ee1ff8f346fa26d89fa8f74cc97fbb422cede6875b95723891c21c6b996836550d43f2ba5146a30961609f5d14c07244244f05e74b0	NO-USER.png	XzlfusaYinFnLcV	2026-01-26 14:44:39.617991	1
+1	c90fc766-db1a-4265-ba24-01eb3b7247c2	2025-12-16 11:40:25.409198+01	2026-05-13 12:55:34.425267	\N	Ivan Recio	644 45 32 91	ivan.recio	44d6bfa719f5ba08eaef9cdd5035d0c5f2f894da57f9140c34ab1c842387597889886d0880d314c4246d9a080b2ad10afc4bb41f95ea47e70e3ef201741fe0bc	IVAN-RECIO.jpg	dKgjYA9BnxPt6Is	2026-05-13 12:55:34.425267	2
+5	<function uuid4 at 0x70912661ede0>	2025-12-16 13:12:42.071689	2026-02-04 13:11:28.439947	\N	Pablo Lopez	\N	pablo.lopez	51dfaadc64855092caf88cc7ee48d9214b1a93364cdf0458790dca46f6a90ec642390714fc8364053baa7d08f9cc8101f5612b53f2498bfffaa1b0c75207734f	NO-USER.png	AuUpFLVPf3vknW1	2026-02-04 13:11:28.439947	2
+\.
 
 COPY public.tasks_user (id, uuid, creationdate, modificationdate, deleteddate, id_user, id_task) FROM stdin;
 1	681122f8-f536-4479-80e3-3b7c1059e6a4	2025-12-16 11:40:25.760144+01	2025-12-16 11:40:25.760144+01	\N	1	5
@@ -568,44 +530,11 @@ COPY public.tasks_user (id, uuid, creationdate, modificationdate, deleteddate, i
 50	97ab14d0-2f18-4778-b58e-5e2ac2a9e546	2026-02-03 13:50:02.039743	2026-02-03 13:50:02.039743	\N	4	36
 \.
 
-
---
--- Data for Name: user_notifications; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
 COPY public.user_notifications (id, uuid, creationdate, modificationdate, deleteddate, id_notification, id_user) FROM stdin;
 8	72d0f480-b416-4e09-9eef-034b49fc32c1	2025-12-19 09:44:25.78582	2025-12-19 09:44:25.78582	\N	1	5
 9	5becb279-1405-4ef0-bca9-dfc10b79bd11	2025-12-19 09:44:39.47132	2025-12-19 09:44:39.47132	\N	1	1
 10	15f466fe-6e7e-4c7e-9889-6779938a879c	2025-12-19 09:44:39.479878	2025-12-19 09:44:39.479878	\N	1	2
 \.
-
-
---
--- Data for Name: user_role; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.user_role (id, uuid, creationdate, modificationdate, deleteddate, name) FROM stdin;
-2	063bec4f-c1a7-4a27-9eb5-950298d5b726	2025-12-17 12:57:33.063748	2025-12-17 12:58:04.303997	\N	SuperAdmin
-1	e1b6c0a0-c439-4103-b447-a700edd23507	2025-12-16 11:40:25.33557+01	2025-12-17 12:58:13.311793	\N	Administrador
-\.
-
-
---
--- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.usuario (id, uuid, creationdate, modificationdate, deleteddate, fullname, phone, email, password, imagepath, sessiontoken, sessiondate, id_role) FROM stdin;
-2	79b29c7d-7c09-4b79-9cbb-3d5a3a56fa00	2025-12-16 11:40:25.442536+01	2025-12-18 07:50:58.872584	\N	Jorge Guillén	644 45 32 91	jorge.guillenp@uah.es	0429ca1282e13fb62be2b581a424ca610ee2c5a59eade5c50128cb1b05273b40b5596a5df9b590d1bcb0fbd4a6686539f9c6b8299bf084f6ac581cdb034f1e62	JORGE-GUILLEN.jpg	KYhWxMrUm36OCdd	2025-12-18 07:50:58.872584	2
-3	93c73d47-5df7-4bfb-8925-925a458f1254	2025-12-16 11:40:25.475884+01	2026-02-18 08:47:31.525899	\N	María Samper	644 45 32 91	maria.samper@uah.es	b54ffe02256a91f913c3a5c00731237056bc4818a6058f1122985bd698045677ad4f7bc6e68f1295aa4416ec307c83ad0787759175e8d178996563ee03178cbd	MARIA-SAMPER.jpg	4KQLVYZihx1KZmI	2026-02-18 08:47:31.525899	1
-4	38eea687-c52d-442f-8b14-677e98f8aacb	2025-12-16 11:40:25.484255+01	2026-01-26 14:44:39.617991	\N	Ricardo Chocano	644 45 32 91	ricardo.chocano@uah.es	8869c155849c775743ab9ee1ff8f346fa26d89fa8f74cc97fbb422cede6875b95723891c21c6b996836550d43f2ba5146a30961609f5d14c07244244f05e74b0	NO-USER.png	XzlfusaYinFnLcV	2026-01-26 14:44:39.617991	1
-1	c90fc766-db1a-4265-ba24-01eb3b7247c2	2025-12-16 11:40:25.409198+01	2026-05-13 12:55:34.425267	\N	Ivan Recio	644 45 32 91	ivan.recio	44d6bfa719f5ba08eaef9cdd5035d0c5f2f894da57f9140c34ab1c842387597889886d0880d314c4246d9a080b2ad10afc4bb41f95ea47e70e3ef201741fe0bc	IVAN-RECIO.jpg	dKgjYA9BnxPt6Is	2026-05-13 12:55:34.425267	2
-5	<function uuid4 at 0x70912661ede0>	2025-12-16 13:12:42.071689	2026-02-04 13:11:28.439947	\N	Pablo Lopez	\N	pablo.lopez	51dfaadc64855092caf88cc7ee48d9214b1a93364cdf0458790dca46f6a90ec642390714fc8364053baa7d08f9cc8101f5612b53f2498bfffaa1b0c75207734f	NO-USER.png	AuUpFLVPf3vknW1	2026-02-04 13:11:28.439947	2
-\.
-
-
---
--- Data for Name: works; Type: TABLE DATA; Schema: public; Owner: postgres
---
 
 COPY public.works (id, uuid, creationdate, modificationdate, deleteddate, title, student, teacher, yearpresentation, type, status, career) FROM stdin;
 1	14c504ad-6242-4485-a920-57acf412e25d	2025-12-16 11:40:25.793986+01	2025-12-16 11:40:25.793986+01	\N	Desarrollo de una aplicación Android para la recogida y envío de datos característicos de las aves	Razvan Virgil Craciun	Pablo Luis López Espí	2021/22	TFG	DEFENDED	GISI (G581)

@@ -19,6 +19,8 @@ drop table if EXISTS books;
 drop table if EXISTS user_computer;
 
 
+-- -----------------------------------------------------
+
 
 CREATE SEQUENCE IF NOT EXISTS public.user_role_id_seq
     INCREMENT 1
