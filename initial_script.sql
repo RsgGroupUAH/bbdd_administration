@@ -15,6 +15,8 @@ drop table if EXISTS computers;
 drop table if EXISTS softwares;
 drop table if EXISTS signal_devices;
 drop table if EXISTS material_devices;
+drop table if EXISTS books;
+drop table if EXISTS user_computer;
 
 
 
@@ -609,10 +611,6 @@ CREATE TABLE IF NOT EXISTS public.computers
     adminPassword text NOT NULL,
     ipAddress text,
     remote BOOLEAN DEFAULT FALSE,
-    haveStudent BOOLEAN DEFAULT FALSE,
-    studentName TEXT,
-    studentUser TEXT,
-    studentPassword TEXT,
     so TEXT NOT NULL,
     location TEXT NOT NULL,
 	CONSTRAINT computers_pkey PRIMARY KEY (id),
@@ -754,5 +752,102 @@ ALTER SEQUENCE IF EXISTS material_devices_id_seq OWNED BY material_devices.id;
 
 CREATE INDEX IF NOT EXISTS material_devices_idx_uuid
     ON public.material_devices USING btree
+    (uuid)
+    TABLESPACE pg_default;
+
+
+-- --------------------------------------------------------------------------
+
+
+CREATE SEQUENCE IF NOT EXISTS public.books_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+ALTER SEQUENCE public.books_id_seq     OWNER TO postgres;
+
+
+CREATE TABLE IF NOT EXISTS public.books 
+(
+    id integer NOT NULL DEFAULT nextval('books_id_seq'::regclass),
+    uuid text COLLATE pg_catalog."default" NOT NULL,
+    creationDate text NOT NULL,
+    modificationDate text NOT NULL,
+    deletedDate text,
+    status text NOT NULL,
+    f_inicio TEXT NOT NULL,
+    f_fin text NOT NULL,
+    id_user int NOT NULL,
+    id_ordenador int NOT NULL,
+	CONSTRAINT books_pkey PRIMARY KEY (id),
+	CONSTRAINT unique_books_uuid UNIQUE (uuid),
+    CONSTRAINT book_user_id_user_fkey FOREIGN KEY (id_user)
+        REFERENCES public.usuario (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT book_computer_id_ordenador_fkey FOREIGN KEY (id_ordenador)
+        REFERENCES public.computers (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.books     OWNER to postgres;
+
+ALTER SEQUENCE IF EXISTS books_id_seq OWNED BY books.id;
+
+
+CREATE INDEX IF NOT EXISTS books_idx_uuid
+    ON public.books USING btree
+    (uuid)
+    TABLESPACE pg_default;
+
+
+-- -------------------------------------------------------------
+
+
+CREATE SEQUENCE IF NOT EXISTS public.user_computer_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    CACHE 1;
+
+ALTER SEQUENCE public.user_computer_id_seq     OWNER TO postgres;
+
+
+CREATE TABLE IF NOT EXISTS public.user_computer
+(
+    id integer NOT NULL DEFAULT nextval('user_computer_id_seq'::regclass),
+    uuid text COLLATE pg_catalog."default" NOT NULL,
+    creationDate text NOT NULL,
+    modificationDate text NOT NULL,
+    deletedDate text,
+    id_user int NOT NULL,
+    id_computer int NOT NULL,
+	CONSTRAINT user_computer_pkey PRIMARY KEY (id),
+	CONSTRAINT unique_user_computer_uuid UNIQUE (uuid),
+    CONSTRAINT user_computer_id_user_fkey FOREIGN KEY (id_user)
+        REFERENCES public.usuario (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT user_computer_id_computer_fkey FOREIGN KEY (id_computer)
+        REFERENCES public.computers (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.user_computer     OWNER to postgres;
+
+ALTER SEQUENCE IF EXISTS user_computer_id_seq OWNED BY user_computer.id;
+
+
+CREATE INDEX IF NOT EXISTS user_computer_idx_uuid
+    ON public.user_computer USING btree
     (uuid)
     TABLESPACE pg_default;
